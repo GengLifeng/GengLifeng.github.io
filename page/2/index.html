@@ -151,6 +151,406 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-15-测试经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/12/15-测试经验/">测试经验</a>
+    </h1>
+  
+
+        
+        <a href="/2018/02/12/15-测试经验/" class="archive-article-date">
+  	<time datetime="2018-02-12T01:32:00.876Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="测试思维"><a href="#测试思维" class="headerlink" title="测试思维"></a>测试思维</h3><p>其实测试思维可以理解为执行测试的思想，但仅仅说是测试执行又过于片面，如果想要更全面的理解的话，通俗的讲，就是拿到任何一种产品，就知道如何去测试，先测试哪里，再测试哪里，最后测试什么。这就涉及到测试工具，测试方法等方面的选择和设计，测试思维讲的更简单些，就是测试工作的执行方法。</p>
+<p>判定一个人有测试思维，主要是根据他测试执行的方法、执行测试的流程等，最终是否需求遗漏等方面去判断的。</p>
+        
+          <a class="article-more-a" href="/2018/02/12/15-测试经验/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">测试经验</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/02/12/15-测试经验/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-14-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/23/14-test/">Postman Sandbox</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/23/14-test/" class="archive-article-date">
+  	<time datetime="2018-01-23T01:57:11.245Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 判断header的Content-Type 的值</div><div class="line">var type = postman.getResponseHeader(&quot;content-Type&quot;) </div><div class="line">tests[&quot;请求返回来的类型是图片&quot;] = type === &quot;image/png&quot;;</div><div class="line"></div><div class="line">// 判断返回来的JSON 中的data的长度 或是否为空（等于0）</div><div class="line">var data = JSON.parse(responseBody);</div><div class="line">tests[&quot;请求返回24个时次的数据&quot;] = Object.keys(data.data).length === 24;</div><div class="line"></div><div class="line">//  判断返回的JSON中是否包含某个字符串</div><div class="line">tests[&quot;返回了现场天气条件&quot;] = responseBody.has(&quot;index&quot;);</div><div class="line"></div><div class="line">// 判断返回的JSON中的某个字段是否是哪个特定的值</div><div class="line">var data = JSON.parse(responseBody);</div><div class="line">tests[&quot;status的值为1&quot;] = data.status === 1;</div><div class="line"></div><div class="line">// 将当前时间格式化 并且设置为全局变量</div><div class="line">var time = new Date().format(&quot;yyyy-MM-dd hh:mm:ss&quot;);     //format不是原生方法 需要自己定义-_-!!</div><div class="line">pm.globals.set(&quot;dateTime&quot;, time);   // time是变量不要加 &quot; &quot;</div><div class="line"></div><div class="line">//</div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/23/14-test/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-13-postman Sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/18/13-postman Sandbox/">Postman Sandbox</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/18/13-postman Sandbox/" class="archive-article-date">
+  	<time datetime="2018-01-18T02:29:06.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>postman sandbox是每个请求的pre-requset scripts 和test scripts中JS的执行环境</p>
+<h3 id="动态变量"><a href="#动态变量" class="headerlink" title="动态变量"></a>动态变量</h3>
+postman也可以设置动态的变量，到现在这还是一个重要的尝试。越来越多的方法很快被添加。现在动态变量标记不能在sandbox中，仅可以在请求的URL/headers/body中使用{{..}}格式来添加动态变量。
+
+{{$guid}}:adds a v4 style guid
+{{$timestamp}}:add the curent timestamp
+{{$randomTnt}}: adds a random integer between 0 and 100
+
+> 设置了环境变量后，在URL中使用key={{variable}}  （坑！！之前一直用{{variable}} 后来用这个返回的结果和浏览器中不一样 懵-_-!! 原来一直写错了 竟然没有报错 后来从开发那里听到 现在接口中主要依赖路径这块 后面的参数有没有都无所谓）
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/18/13-postman Sandbox/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-12-postman中scriptSpnippets" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/12-postman中scriptSpnippets/">postman中scriptSpnippets</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/10/12-postman中scriptSpnippets/" class="archive-article-date">
+  	<time datetime="2018-01-10T06:05:34.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Test-examples"><a href="#Test-examples" class="headerlink" title="Test examples"></a>Test examples</h3><p>设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pm.environment.set(&quot;variabe_key&quot;,&quot;variable_value&quot;); </div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;key&quot;,&quot;value&quot;);</div></pre></td></tr></table></figure></p>
+<p>设置内置的对象为环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4];</div><div class="line">pm.environment.set(&quot;arr&quot;,JSON.stringify(arr,null,a));</div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;arr&quot;, JSON.stringify(arr,null,a));</div><div class="line"></div><div class="line">var obj = &#123; a: [1,2,3,4], b:&#123; c: &apos;val&apos;&#125;&#125;;</div><div class="line">pm.environment.set(&quot;obj&quot;, JSON.stringify(obj));</div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;obj&quot;,JSON.stringify(obj));</div></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2018/01/10/12-postman中scriptSpnippets/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/10/12-postman中scriptSpnippets/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-11-接口测试必要性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/07/11-接口测试必要性/">接口测试的必要性</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/07/11-接口测试必要性/" class="archive-article-date">
+  	<time datetime="2018-01-07T06:42:50.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>api自动化测试是软件测试中最基本的一种类型。api就像建造大楼的砖块，开发人员通过运用一定规则将“砖块”放在一起来构造程序，本质来说，api测试是用来验证组成软件的那些单个方法的正确性，而不是测试政哥系统本身。</p>
+<p>api测试又称接口测试，接口测试是功能测试的一种，主要借助与单元测试技术，通过模拟上层应用调用接口的应用场景，是对系统接口功能进行测试的一种手段，在进行接口测试的过程中，测试工程师并不需要了解被测试系统的所有代码，而主要通过分析接口定义以及模拟接口调用的业务场景来进行测试用例的设计，从而达到被测试系统功能进行测试的目的。接口测试的重点是要检查数据的交换、传递和控制管理的过程，以及系统间的相互逻辑依赖关系等。</p>
+        
+          <a class="article-more-a" href="/2018/01/07/11-接口测试必要性/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/07/11-接口测试必要性/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-10-浏览器中回车（Enter）和刷新的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -555,454 +955,6 @@
 
 
   
-    <article id="post-99-learningNotes-16" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/99-learningNotes-16/">软件测试 原书第2版（Patton） 学习笔记（16）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/18/99-learningNotes-16/" class="archive-article-date">
-  	<time datetime="2017-12-18T07:00:42.246Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="测试计划"><a href="#测试计划" class="headerlink" title="测试计划"></a>测试计划</h2><h3 id="测试计划的目标"><a href="#测试计划的目标" class="headerlink" title="测试计划的目标"></a>测试计划的目标</h3><ul>
-<li>软件测试计划是软件测试员与产品开发小组交流意图的主要方式</li>
-<li>软件测试文档的ANSI/IEEE标准829/1983以如下方式表达软件测试计划的目的：规定测试活动的范围、方法、资源和进度；明确正在测试的项目、要测试的特性、要至此功能的测试任务、每个任务的负责人，以及与计划相关的风险</li>
-<li>测试计划只是制作产品的详细计划过程的副产品，重要的是计划过程，而不是产生的文档</li>
-<li>测试计划过程的最终目标是交流（而不是记录）软件测试小组的意图、期望，以及对将要执行的任务的理解。计划从本质上讲是一个动态过程，因此如果发现列出的问题不适用具体情况，就可以自行调整</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/18/99-learningNotes-16/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">测试计划</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/18/99-learningNotes-16/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-99-learningNotes-15" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/16/99-learningNotes-15/">软件测试 原书第2版（Patton） 学习笔记（15）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/16/99-learningNotes-15/" class="archive-article-date">
-  	<time datetime="2017-12-16T06:28:45.026Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="缺陷轰炸和Beta测试"><a href="#缺陷轰炸和Beta测试" class="headerlink" title="缺陷轰炸和Beta测试"></a>缺陷轰炸和Beta测试</h2><h3 id="让别人测试你的软件"><a href="#让别人测试你的软件" class="headerlink" title="让别人测试你的软件"></a>让别人测试你的软件</h3><ul>
-<li>请其他人检查软件有助于打破杀虫剂怪现象，不同的人注意不同的事物。从一个人的角度看，具有抗药性，总是发现不了的软件缺陷可以被项目小组中的其他人一眼看出。</li>
-<li>人们不仅相互之间看到的不同，而且测试方法也不同。</li>
-<li>有人帮忙测试有助于消除烦躁心情。</li>
-<li>观察别人解决问题的方式是学习新测试技术的好方法。总有不同的新测试方法可以收入囊中</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/16/99-learningNotes-15/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/16/99-learningNotes-15/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-04-猴子测试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/04-猴子测试/">猴子测试</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/15/04-猴子测试/" class="archive-article-date">
-  	<time datetime="2017-12-15T03:24:56.421Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="猴子测试"><a href="#猴子测试" class="headerlink" title="猴子测试"></a>猴子测试</h2><h3 id="随机测试：猴子测试员"><a href="#随机测试：猴子测试员" class="headerlink" title="随机测试：猴子测试员"></a>随机测试：猴子测试员</h3><ul>
-<li>有一类自动测试不是为帮助执行或者自动执行测试用例而设计的，其目标是模拟用户的操作。此类自动化工具称为猴子测试员</li>
-<li>猴子测试员的说法来源于一个想法，如果让一百万只猴子在一百万只键盘上敲一百万年，它们最终就可能写出莎士比亚话剧，胡乱敲键盘可能无意间碰到正确的字母组合，而猴子一时间显得才华横溢</li>
-<li>当软件公开发布时，成千上万的人会乱敲乱试。除非精心设计案例，否则有些软件缺陷就会漏掉，被这些用户发现。在产品发布之前，用模拟这些用户操作的方式加强测试用例，结果会怎样？这就有可能发现其他测试方式会漏掉的软件缺陷</li>
-<li>利用猴子测试员模拟客户使用软件的方式无法打进比猴子更具智能的猿那样的计算机用户中</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/15/04-猴子测试/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">猴子</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/04-猴子测试/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-99-learningNotes-14" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/11/99-learningNotes-14/">软件测试 原书第2版（Patton） 学习笔记（14）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/11/99-learningNotes-14/" class="archive-article-date">
-  	<time datetime="2017-12-11T03:22:04.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="自动测试和测试工具"><a href="#自动测试和测试工具" class="headerlink" title="自动测试和测试工具"></a>自动测试和测试工具</h2><h3 id="自动化和工具的好处"><a href="#自动化和工具的好处" class="headerlink" title="自动化和工具的好处"></a>自动化和工具的好处</h3><ul>
-<li>工具和自动化的主要属性：<ul>
-<li>速度</li>
-<li>效率</li>
-<li>准确度和精确度</li>
-<li>坚持不懈</li>
-</ul>
-</li>
-<li>软件测试工具不能代替软件测试员——他们只能帮助软件测试员更好地工作</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/11/99-learningNotes-14/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">自动化测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/11/99-learningNotes-14/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-99-learningNotes-13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/99-learningNotes-13/">软件测试 原书第2版（Patton） 学习笔记（13）</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/06/99-learningNotes-13/" class="archive-article-date">
-  	<time datetime="2017-12-06T01:18:22.157Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="网站测试"><a href="#网站测试" class="headerlink" title="网站测试"></a>网站测试</h2><h3 id="网页基础"><a href="#网页基础" class="headerlink" title="网页基础"></a>网页基础</h3><ul>
-<li>可自定义的布局，允许用户更改信息在屏幕上的位置</li>
-<li>可自定义的内容，允许用户选择想看的新闻和信息</li>
-<li>动态下拉式选择框</li>
-<li>动态变化的文字</li>
-<li>取决于屏幕分辨率的动态布局和可选信息</li>
-<li>与不同网络浏览器i、浏览器版本。以及硬件和软件平台的兼容性</li>
-<li>大量增加网页易用性的隐藏格式、标记和嵌入信息</li>
-</ul>
-        
-          <a class="article-more-a" href="/2017/12/06/99-learningNotes-13/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网站</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/06/99-learningNotes-13/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1136,11 +1088,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1152,11 +1104,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1176,7 +1132,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1188,15 +1148,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
             
             <div class="clearfix"></div>

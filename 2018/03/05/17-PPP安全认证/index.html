@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/03/05/17-PPP安全认证/index.html">
 <meta property="og:site_name" content="LifengGeng">
 <meta property="og:description" content="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）在RFC1334指定的同步和异步接口支持两个 PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。 PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保">
-<meta property="og:updated_time" content="2018-03-06T10:26:08.584Z">
+<meta property="og:updated_time" content="2018-04-20T09:17:34.358Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PPP点对点协议">
 <meta name="twitter:description" content="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）在RFC1334指定的同步和异步接口支持两个 PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。 PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保">
@@ -174,20 +174,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h1><p>在RFC1334指定的同步和异步接口支持两个</p>
+        <h3 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h3><p>在RFC1334指定的同步和异步接口支持两个</p>
 <p>PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。</p>
 <p>PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保护措施。远程节点是由登录尝试的频率和定时控制。</p>
 <p>CHAP是挑战握手认证协议，全称：Challenge Handshake Authentication Protocol  CHAP通过三次握手验证被认证端的身份，在初始链路建立时完成，未来提高安全性，在链路建立之后周期性进行验证。CHAP比PAP更安全，因为CHAP不在显露上发送明文，而是发送经过MD5过的随机书序列。CHAP支持单向和双向认证。</p>
-<h1 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h1><h1 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h1><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
-<h2 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h2><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
-<h2 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h2><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
-<h2 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h2><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
-<h2 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h2><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
-<h2 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h2><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
-<h2 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h2><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
+<h3 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h3><h3 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h3><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
+<h3 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h3><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
+<h3 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h3><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
+<h3 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h3><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
+<h3 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h3><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
+<h3 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h3><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
+<h3 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h3><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
 <p>模块完成多个需要按一定的步骤一次完成的功能。例如：在用程序流程图设计模块时，若将程序流程图中的一部分划出各自组成模块，便形成过程内聚。</p>
-<h2 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h2><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
-<h2 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h2><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
+<h3 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h3><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
+<h3 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h3><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
 <p>过程设计主要包含对数据结构和算法的设计。</p>
 <p>状态——迁移图（STD）或状态——迁移表被用来描述系统或对象的状态，以及导致系统或对象的状态改变的时间，从而描述系统的行为。</p>
 <p>数据流图是结构分析方法中使用的工具，它以图形的方式描绘数据在系统中流动和处理的过程，由于它只反应系统必须完成的逻辑功能，所以它是一种功能模型。在结构化开发方法中，数据流图是需求分析阶段产生的结果。</p>
@@ -485,11 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +501,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,7 +529,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -537,15 +545,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
             
             <div class="clearfix"></div>

@@ -151,6 +151,428 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-24-进制相互转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/03/24-进制相互转换/">进制相互转换</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/03/24-进制相互转换/" class="archive-article-date">
+  	<time datetime="2018-05-03T03:29:21.848Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="二进制与十六进制的转换"><a href="#二进制与十六进制的转换" class="headerlink" title="二进制与十六进制的转换"></a>二进制与十六进制的转换</h3><ul>
+<li>16位数的表示方法<ul>
+<li>十进制   十六进制    二进制</li>
+<li>0  ——— 0  ——— 0000</li>
+<li>1  ——— 1  ——— 0001</li>
+<li>2  ——— 2  ——— 0010</li>
+<li>3  ——— 3  ——— 0011</li>
+<li>4  ——— 4  ——— 0100</li>
+<li>5  ——— 5  ——— 0101</li>
+<li>6  ——— 6  ——— 0110</li>
+<li>7  ——— 7  ——— 0111</li>
+<li>8  ——— 8  ——— 1000</li>
+<li>9  ——— 9  ——— 1001</li>
+<li>10 ——— A  ——— 1010</li>
+<li>11 ——— B  ——— 1011</li>
+<li>12 ——— C  ——— 1100</li>
+<li>13 ——— D  ——— 1101</li>
+<li>14 ——— E  ——— 1110</li>
+<li>15 ——— F  ——— 1111</li>
+</ul>
+</li>
+<li>二进制转换成十六进制的方法是，取四合一法，即从二进制的小数点为分界点，向左（或向右）每四位取成一位</li>
+<li>组分好后，对照二进制与十六进制的对应表，将四位二进制按权相加，得到的数就是一位十六进制数，然后按顺序排列，小数点的位置不变，最后得到的就是十六进制数</li>
+<li>十六进制的表示法，用字母H后缀表示，比如BH就表示十六进制数11；也可以用OX前缀白哦是，比如OX23就是十六进制的23</li>
+<li>需要注意的是，在向左取四位时，取到最高位如果无法凑成四位，就可以在小数点的最左边补0，进行换算；同样向右取四位时，取到最低位如果无法凑成四位，就可以在小数点的最右边补0，进行换算</li>
+<li>将十六进制转为二进制时，反过来，方法就是一分四，即一个十六进制数分成四个二进制数，用四位二进制按权相加，最后得到二进制，小数点依旧就可以了</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/03/24-进制相互转换/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-23-计算机组成和体系结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/23-计算机组成和体系结构/">计算机组成和体系结构</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/04/23-计算机组成和体系结构/" class="archive-article-date">
+  	<time datetime="2018-04-04T06:18:19.832Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>计算机系统运行时，各个部件之间要进行数据交换，为了确保数据在传递过程中正确无误，一是提高硬件电路的可靠性；二是提高代码的校验能力，包括查错和纠错。常用的三种校验码：奇数校验码（Parity codes）、海明码（Hamming Code）、循环冗余校验（Cyclic Redundancy,CRC）码。循环冗余校验码广泛应用于数据通信领域和磁介质存储系统中，它利用生成多项式为K个数据位产生r个校验位来进行编码，其编码长度为K+r。CRC的代码格式为：K个数据+r个校验码，即在k个数据位之后跟r个校验位</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机组成</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/04/23-计算机组成和体系结构/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-22-协议" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/28/22-协议/">协议</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/28/22-协议/" class="archive-article-date">
+  	<time datetime="2018-03-28T01:05:47.004Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="协议"><a href="#协议" class="headerlink" title="协议"></a><a href="https://baike.baidu.com/item/%E5%8D%8F%E8%AE%AE/13020269" target="_blank" rel="external">协议</a></h1><p>协议，网络协议的简称，网络协议是通信计算机双方必须共同遵从的一组约定。如怎么样建立链接、怎么样相识别等。只有遵守这个约定，计算机之间才能相互通信交流。它的三要素：语法、语义、时序</p>
+<ul>
+<li>语法：即数据与控制信息的结构或格式</li>
+<li>语义：即需要发出何种控制信息，完成何种动作以及做出何种响应</li>
+<li>时序（同步）：即事件实现顺序的详细说明</li>
+</ul>
+<p>协议的特点：</p>
+<ul>
+<li>协议中的每个人都必须了解协议，并且预先知道所要完成的所有的步骤</li>
+<li>协议中的每个人都必须同意并遵循它</li>
+<li>协议必须是清楚的，每一步必须明确定义，并且不会引起误解</li>
+</ul>
+<p>为了使数据在网络上从源到达目的，网络通信的参与方必须遵循相同的规则，这套则称为协议（prorocol），它最终体现为在网络上传输的数据包的格式</p>
+<p>协议往往分成几个层次进行定义，分层定义是为了使某一协议的改变不影响其他层次的协议</p>
+<h3 id="ISO-OSI协议模型"><a href="#ISO-OSI协议模型" class="headerlink" title="ISO/OSI协议模型"></a>ISO/OSI协议模型</h3><p>国际标准化组织（ISO）为了规范协议层次的划分制定了开发系统互联（OSI，Open Systems Interconnection）模型，即ISO/OSI参考模型。此模型根据网络功能制定出7层网络协议结构，由低到高分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层</p>
+<ul>
+<li>物理层：简单的说，物理层协议对与基本物理信号传输有关的机械、电气等功能进行描述。若生产相互连接的两个设备的两个厂商都遵循相同物理层规范，则二者必定能被链接在一起，并能接收对方发来的电、光或其他的物理信号，而且能正确地将这些物理信号理解为二进制的0和1序列。物理层只负责正确地1和发送比特，并不关心这些比特的具体含义。</li>
+<li>数据链路层：数据链路层简称链路层，它依赖物理层提供的比特传输能力把数据组织成为有边界的传输单位，称为“帧”。链路层把来自网络层的数据组织成“帧”，然后再通过物理层向外发送。当然，链路层也要负责从来自物理层的比特序列（或者字节序列）中区分出一个个的帧，并将帧中的数据传递给网络层。未来将各个帧区分开来，需要在帧的头部和尾部附加一些特点的信息，这个过程称为“封装”，其相反的过程称为“解封装”。“封装”的概念不只在链路层中存在，在更高的各层协议中同样存在。所有层上的“封装”问题的共同特征是把来自高层的封装单位根据本层的需要附加上特定信息形成本层的封装单位，然后向低层传递，同时把来自低层的数据解封装后向高层传递。另外，链路层还可以有其他的诸如差错校验、流量控制等功能，但要理解整个协议体系，则首先应记住它和帧之间的密切关系，因为帧使无头无尾的比特序列变成容易控制的有界单位</li>
+<li>网络层：网络层解决如何标识通信各方和数据如何从源到达目的这个问题。网络层用特定的网络层地址来标识整个网络中的一个节点，并负责使来自传输层的应该到达某个网络层地址的数据能够被送达这个网络层地址所对应的网络节点。网络层的封装单位称为“包”，“包”需要被进一步封装成链路层的帧然后才能通过物理层发送出去，而在接收方，包在链路层的帧中被解封装出来。最典型的网络层协议就是目前在Internet中使用的IP协议，它使用IP地址唯一地标识Internet中的一台主机，路由设备根据IP包中的目的IP地址将IP包一步步转发至目的主机。</li>
+<li>传输层：依赖物理层、数据链路层和网络层和网络层，任意一个网络节点都能把任何信息传递到其他任意节点，而传输层在物理层、数据链路层和网络层提供的节点间的通信能力基础上进一步提供了面向应用的服务。传递层向上层提供了屏蔽了传输细节的数据传输服务，将来自高层的数据进行分段并将来自低层的数据重组，对数据传输进行差错回复和流量控制。通过对每个网络节点的多个进程进行标识，传输层可以实现对网络层的多路复用</li>
+<li>会话层：会话层用于建立和管理不同主机的两个进程之间的对话。会话层可以管理对话，可允许对话在两个方向上同时进行，也可以强制对话同时只在一个方向上进行。在后一种情况下，会话层可以提供会话令牌来控制某时刻哪一方发生数据。会话层还可以提供同步服务，它可以在数据流中插入同步点，每当因网络出现故障而造成大量数据传输中断时，通过同步点机制可以使用两个进程之间的数据传输不需要从头开始，而是从最后一个同步点开始继续传输。</li>
+<li>表示层：表示层协议规定对来自应用层的数据如何进行表达，例如采用什么样的文字编码、是否及 如何进行压缩、是否及如何加密等。</li>
+<li>应用层：应用层是ISO/OSI模型中最靠近用户的一层，应用层协议直接面对用户的需求，例如与发送邮件相关的应用层协议可以规定诸如邮件地址的格式、邮件内容的段落表示、客户与服务器进行交互的命令串等。</li>
+</ul>
+<h3 id="常用的协议"><a href="#常用的协议" class="headerlink" title="常用的协议"></a>常用的协议</h3><ul>
+<li>TCP/IP是母亲啊最流行的网络协议，但TCP/IP协议在局域网中的通信效率并不高，使用它在浏览“网上邻居”中的计算机时，经常会出现不能正常浏览的现象。</li>
+<li>NetBEUI即NetBios Enhanced User Interface,或NetBios增强用户接口。它是NetBIOS协议的增强版本，曾被许多操作系统采用。是一种短小精悍、通信效率高的广播型协议，安装后不需要进行设置，特别适合于在“网络邻居”传送数据。所以建议除了TCP/I协议之外，小型局域网的计算机也可以安上NetBEUI协议。另外还有一点要注意，如果一台只装了TCP/IP协议的WINDOWS98机器要想加入到WINNT域，也必须安装NetBEUI协议</li>
+<li>IPX/SPX协议本来就是Novell开发的专用语NetWare网络中的协议，但是也非常常用——大部分可以联机的游戏都支持IPX/SPX协议，比如星际争霸 ，反恐精英等等。</li>
+</ul>
+<p><img src="../img/22-协议.png" alt="协议"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/28/22-协议/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-21-CPU" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/21/21-CPU/">中央处理器--CPU</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/21/21-CPU/" class="archive-article-date">
+  	<time datetime="2018-03-21T03:03:46.039Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/284033?fr=aladdin&amp;fromid=368184&amp;fromtitle=%EF%BC%A3%EF%BC%B0%EF%BC%B5" target="_blank" rel="external">中央处理器</a></h1><p>中央处理器（Central Processing Unit）是一块超大规模的集成电路，是一台计算机的运算核心（Core）和控制核心（Control Unit），它的功能主要是解释计算机指令以及处理计算机软件中的数据</p>
+<p>中央处理器主要包括运算器（算数逻辑运算单元 ALU Arithmetic Logic Unit）和高速缓冲存储器（Cache）及实现它们之间联系的数据（Data）、控制及札幌肽的总线（Bus）。与内部存储器（Memory）二号输入/输出（I/O）设备合成为电子计算机三大核心部件。</p>
+<h2 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h2><p>CPU包括运算逻辑部件、寄存器部件和控制部件等</p>
+<h3 id="逻辑部件—Logic-components"><a href="#逻辑部件—Logic-components" class="headerlink" title="逻辑部件—Logic components"></a>逻辑部件—Logic components</h3><p>运算逻辑部件，可以执行定点或浮点算术运算操作、以为操作以及逻辑操作，也可执行地址运算和转换</p>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>寄存器部件包括寄存器、专用寄存器和控制寄存器。通用寄存器又可分定点数和浮点数两类，它们用来保存指令执行过程中临时存放的寄存器操作数和中间（或最终）的操作结果。通用寄存器是中央处理器的重要部件之一</p>
+<h3 id="控制部件—Control-unit"><a href="#控制部件—Control-unit" class="headerlink" title="控制部件—Control unit"></a>控制部件—Control unit</h3><p>控制部件主要是负责对指令译码，并且发出为完成每条指令所要执行的各种操作的控制信号</p>
+<p>其结构有两种：一种是以微型存储为核心的微程序控制方式；一种是以逻辑硬布线为主的控制方式</p>
+<p>微存储中保持微码，每一个微码对应于一个最基本的微操作，又称微指令；各条指令是由不同序列的微码组成，这种微码序列构成微程序。中央处理器在对指令译码以后，即发出一定时序的控制信号，按给定序列的顺序以为周期为节拍执行由这些 微码确定的若干个微操作，即可完成某条指令的执行。</p>
+<p>简单指令是由（3-5）个微操作组成，复杂指令则要由几十个微操作组成</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="处理指令—Proocessing-instrutions"><a href="#处理指令—Proocessing-instrutions" class="headerlink" title="处理指令—Proocessing instrutions"></a>处理指令—Proocessing instrutions</h3><p>这是指控制车呢供需中指令的执行顺序。程序中的各指令之间室友严格顺序的，必须严格按程序规定的顺序执行，才能保证计算机系统工作的正确性</p>
+<h3 id="执行操作-Perform-an-action"><a href="#执行操作-Perform-an-action" class="headerlink" title="执行操作 Perform an action"></a>执行操作 Perform an action</h3><p>一条指令的功能往往是由计算机中部件执行一系列的操作来实现的CPU要根据指令的功能，产生响应的操作控制信号，发给相应的部件，从而控制这些部件按指令的要求进行动作</p>
+<h3 id="控制时间—-Control-time"><a href="#控制时间—-Control-time" class="headerlink" title="控制时间— Control time"></a>控制时间— Control time</h3><p>时间控制就是对各种操作实施时间上的定时。在一条指令的执行过程中，在什么时间做什么操作均应收到严格的控制。只有这样，计算机才能有条不紊地工作</p>
+<h3 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h3><p>即对数据进行算数运算和逻辑运算，或进行其他的信息处理</p>
+<p>其功能主要是解释计算机指令以及处理计算机软件中的数据，并执行指令。在微型计算机中又称微处理器，计算机的所有操作都受CPU控制，CPU的性能指标直接决定了微机系统的性能指标。CPU具有以下4个方面的基本功能：数据通信、资源共享、分布式处理、提供系统共可靠性。运作原理可基本分为四个阶段：提取（Fetch）、解码（Decode）、执行（Ececute）和写回（Writeback）。</p>
+<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><p>CPU从存储器或高速缓冲存储器中取出指令，放入指令寄存器，并对指令译码。它把指令分解成一系列的微操作，然后发出各种控制命令，执行微操作系列，从而完成一条指令的执行。指令是计算机规定执行操作的类型和操作数的基本命令。指令是由一个字节或者多个字节组成，其中包括操作码字段、一个或多个有关操作数地址的字段以及一些表征机器状态的状态字以及特征码。有的指令中也直接包含操作数本身。</p>
+<h3 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h3><p>第一阶段，提取，从存储器或高速缓冲存储器中检索指令（为数值或一系列数值）。由程序计数器（Program Counter）指定存储器的位置。（程序计数器保存供识别程序位置的数值。换言之，程序计数器记录了CPU在程序里的踪迹）</p>
+<h3 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h3><p>CPU根据存储器提取到的指令来决定其执行行为。在解码阶段，指令被拆解为有意义的片段。根据CPU的指令集架构（ISA）定义将数值解译为指令。一部分的指令数值为运算码（Opcode），其指示要进行哪些运算。其它的数值通常供给指令必要的信息，诸如一个加法（Addition）运算的运算目标。</p>
+<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>在提取和解码阶段之后，紧接着进入执行阶段。该阶段中，连接到各种能够进行所需运算的CPU部件。</p>
+<p>例如，要求一个加法运算，算术逻辑单元（ALU Arithmetic Logic Unit）将会连接到一组输入和一组输出。输入提供了要相加的数值，而输出将含有总和的结果。ALU内含电路系统，易于输出端完成简单的普通运算和逻辑运算（比如加法和位元运算）。如果加法运算产生一个对该CPU处理而言过大的结果，在标志暂存器里可能会设置溢出（Arithmetic Overflow）标志。</p>
+<h3 id="写回"><a href="#写回" class="headerlink" title="写回"></a>写回</h3><p>最终阶段，写回，以一定格式将执行阶段的结果简单写回。运算结果经常被写进CPU内部的暂存器，以供随后指令快速存取。在其它案例中，运算结果可能写进速度较慢，但容量较大且较便宜的主记忆体中。某些类型的指令会操作程序计数器，而不直接产生结果。这些一般称作“跳转”（Jumps），并在程式中带来循环行为、条件性执行（投过条件跳转）和函式。许多指令会改变标志暂存器的状态位元。这些标志可用来影响程式行为，缘由于它们时常显出各种运算结果。例如，以一个“比较”指令判断两个值大小，根据比较结果在标志暂存器上设置一个数值。这个标志可藉由随后跳转指令来决定程式动向。在执行指令并写回结果之后，程序 计数器值会递增，反复整个过程，下一个指令周期正常的提取下一个顺序指令。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/21/21-CPU/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-20-测试相关知识点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/07/20-测试相关知识点/">测试相关知识点</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/07/20-测试相关知识点/" class="archive-article-date">
+  	<time datetime="2018-03-07T08:21:34.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="软件测试配置管理"><a href="#软件测试配置管理" class="headerlink" title="软件测试配置管理"></a>软件测试配置管理</h3><ul>
+<li>软件测试配置管理的基本活动应该包括：建立配置计划、配置标识与建立基线、配置变更管理、版本管理、配置审计、配置状态报告。</li>
+<li>软件配置管理的基本活动主要有：配置识别、配置项控制、配置状态报告、配置审计</li>
+</ul>
+<h3 id="采用图形表示相关信息时"><a href="#采用图形表示相关信息时" class="headerlink" title="采用图形表示相关信息时"></a>采用图形表示相关信息时</h3><ul>
+<li>N-S盒图、PAD图、程序流程图主要用于标识软件模块的执行。</li>
+<li>E-R图是在对系统进行数据建模时采用，用于表示实体和实体之间的联系。</li>
+</ul>
+<p>控制流程图的环路复杂性V(G)等于边数-结点数+2</p>
+<p>对网络设备和TCP/IP网络的检测主要包括以下基本技术指标：吞吐量、丢包率、延时、背靠背性能</p>
+        
+          <a class="article-more-a" href="/2018/03/07/20-测试相关知识点/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/07/20-测试相关知识点/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-19-SQL相关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -416,20 +838,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h1><p>在RFC1334指定的同步和异步接口支持两个</p>
+        <h3 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h3><p>在RFC1334指定的同步和异步接口支持两个</p>
 <p>PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。</p>
 <p>PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保护措施。远程节点是由登录尝试的频率和定时控制。</p>
 <p>CHAP是挑战握手认证协议，全称：Challenge Handshake Authentication Protocol  CHAP通过三次握手验证被认证端的身份，在初始链路建立时完成，未来提高安全性，在链路建立之后周期性进行验证。CHAP比PAP更安全，因为CHAP不在显露上发送明文，而是发送经过MD5过的随机书序列。CHAP支持单向和双向认证。</p>
-<h1 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h1><h1 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h1><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
-<h2 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h2><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
-<h2 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h2><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
-<h2 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h2><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
-<h2 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h2><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
-<h2 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h2><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
-<h2 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h2><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
+<h3 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h3><h3 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h3><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
+<h3 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h3><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
+<h3 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h3><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
+<h3 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h3><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
+<h3 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h3><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
+<h3 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h3><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
+<h3 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h3><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
 <p>模块完成多个需要按一定的步骤一次完成的功能。例如：在用程序流程图设计模块时，若将程序流程图中的一部分划出各自组成模块，便形成过程内聚。</p>
-<h2 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h2><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
-<h2 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h2><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
+<h3 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h3><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
+<h3 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h3><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
 <p>过程设计主要包含对数据结构和算法的设计。</p>
 <p>状态——迁移图（STD）或状态——迁移表被用来描述系统或对象的状态，以及导致系统或对象的状态改变的时间，从而描述系统的行为。</p>
 <p>数据流图是结构分析方法中使用的工具，它以图形的方式描绘数据在系统中流动和处理的过程，由于它只反应系统必须完成的逻辑功能，所以它是一种功能模型。在结构化开发方法中，数据流图是需求分析阶段产生的结果。</p>
@@ -548,406 +970,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/02/12/16-如何避免漏测/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-15-测试经验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/15-测试经验/">测试经验</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/12/15-测试经验/" class="archive-article-date">
-  	<time datetime="2018-02-12T01:32:00.876Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="测试思维"><a href="#测试思维" class="headerlink" title="测试思维"></a>测试思维</h3><p>其实测试思维可以理解为执行测试的思想，但仅仅说是测试执行又过于片面，如果想要更全面的理解的话，通俗的讲，就是拿到任何一种产品，就知道如何去测试，先测试哪里，再测试哪里，最后测试什么。这就涉及到测试工具，测试方法等方面的选择和设计，测试思维讲的更简单些，就是测试工作的执行方法。</p>
-<p>判定一个人有测试思维，主要是根据他测试执行的方法、执行测试的流程等，最终是否需求遗漏等方面去判断的。</p>
-        
-          <a class="article-more-a" href="/2018/02/12/15-测试经验/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">测试经验</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/12/15-测试经验/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-14-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/23/14-test/">Postman Sandbox</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/23/14-test/" class="archive-article-date">
-  	<time datetime="2018-01-23T01:57:11.245Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">// 判断header的Content-Type 的值</div><div class="line">var type = postman.getResponseHeader(&quot;content-Type&quot;) </div><div class="line">tests[&quot;请求返回来的类型是图片&quot;] = type === &quot;image/png&quot;;</div><div class="line"></div><div class="line">// 判断返回来的JSON 中的data的长度 或是否为空（等于0）</div><div class="line">var data = JSON.parse(responseBody);</div><div class="line">tests[&quot;请求返回24个时次的数据&quot;] = Object.keys(data.data).length === 24;</div><div class="line"></div><div class="line">//  判断返回的JSON中是否包含某个字符串</div><div class="line">tests[&quot;返回了现场天气条件&quot;] = responseBody.has(&quot;index&quot;);</div><div class="line"></div><div class="line">// 判断返回的JSON中的某个字段是否是哪个特定的值</div><div class="line">var data = JSON.parse(responseBody);</div><div class="line">tests[&quot;status的值为1&quot;] = data.status === 1;</div><div class="line"></div><div class="line">// 将当前时间格式化 并且设置为全局变量</div><div class="line">var time = new Date().format(&quot;yyyy-MM-dd hh:mm:ss&quot;);     //format不是原生方法 需要自己定义-_-!!</div><div class="line">pm.globals.set(&quot;dateTime&quot;, time);   // time是变量不要加 &quot; &quot;</div><div class="line"></div><div class="line">//</div></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/23/14-test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-13-postman Sandbox" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/18/13-postman Sandbox/">Postman Sandbox</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/18/13-postman Sandbox/" class="archive-article-date">
-  	<time datetime="2018-01-18T02:29:06.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>postman sandbox是每个请求的pre-requset scripts 和test scripts中JS的执行环境</p>
-<h3 id="动态变量"><a href="#动态变量" class="headerlink" title="动态变量"></a>动态变量</h3>
-postman也可以设置动态的变量，到现在这还是一个重要的尝试。越来越多的方法很快被添加。现在动态变量标记不能在sandbox中，仅可以在请求的URL/headers/body中使用{{..}}格式来添加动态变量。
-
-{{$guid}}:adds a v4 style guid
-{{$timestamp}}:add the curent timestamp
-{{$randomTnt}}: adds a random integer between 0 and 100
-
-> 设置了环境变量后，在URL中使用key={{variable}}  （坑！！之前一直用{{variable}} 后来用这个返回的结果和浏览器中不一样 懵-_-!! 原来一直写错了 竟然没有报错 后来从开发那里听到 现在接口中主要依赖路径这块 后面的参数有没有都无所谓）
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/18/13-postman Sandbox/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-12-postman中scriptSpnippets" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/12-postman中scriptSpnippets/">postman中scriptSpnippets</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/10/12-postman中scriptSpnippets/" class="archive-article-date">
-  	<time datetime="2018-01-10T06:05:34.851Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Test-examples"><a href="#Test-examples" class="headerlink" title="Test examples"></a>Test examples</h3><p>设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pm.environment.set(&quot;variabe_key&quot;,&quot;variable_value&quot;); </div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;key&quot;,&quot;value&quot;);</div></pre></td></tr></table></figure></p>
-<p>设置内置的对象为环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var arr = [1,2,3,4];</div><div class="line">pm.environment.set(&quot;arr&quot;,JSON.stringify(arr,null,a));</div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;arr&quot;, JSON.stringify(arr,null,a));</div><div class="line"></div><div class="line">var obj = &#123; a: [1,2,3,4], b:&#123; c: &apos;val&apos;&#125;&#125;;</div><div class="line">pm.environment.set(&quot;obj&quot;, JSON.stringify(obj));</div><div class="line">// 另一种方法</div><div class="line">postman.setEnvironmentVariable(&quot;obj&quot;,JSON.stringify(obj));</div></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/01/10/12-postman中scriptSpnippets/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">postman</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/10/12-postman中scriptSpnippets/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-11-接口测试必要性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/07/11-接口测试必要性/">接口测试的必要性</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/07/11-接口测试必要性/" class="archive-article-date">
-  	<time datetime="2018-01-07T06:42:50.962Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>api自动化测试是软件测试中最基本的一种类型。api就像建造大楼的砖块，开发人员通过运用一定规则将“砖块”放在一起来构造程序，本质来说，api测试是用来验证组成软件的那些单个方法的正确性，而不是测试政哥系统本身。</p>
-<p>api测试又称接口测试，接口测试是功能测试的一种，主要借助与单元测试技术，通过模拟上层应用调用接口的应用场景，是对系统接口功能进行测试的一种手段，在进行接口测试的过程中，测试工程师并不需要了解被测试系统的所有代码，而主要通过分析接口定义以及模拟接口调用的业务场景来进行测试用例的设计，从而达到被测试系统功能进行测试的目的。接口测试的重点是要检查数据的交换、传递和控制管理的过程，以及系统间的相互逻辑依赖关系等。</p>
-        
-          <a class="article-more-a" href="/2018/01/07/11-接口测试必要性/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">接口测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/07/11-接口测试必要性/">展开全文 >></a>
         </p>
       
 
@@ -1110,11 +1132,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,11 +1148,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1150,7 +1176,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,15 +1192,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
             
             <div class="clearfix"></div>
