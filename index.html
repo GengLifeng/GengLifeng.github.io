@@ -151,6 +151,98 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-25-用户登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/09/25-用户登录/">用户登录测试用例讲解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/09/25-用户登录/" class="archive-article-date">
+  	<time datetime="2018-08-09T08:26:57.231Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作为专栏的第一篇文章，我选择了一个你耳熟能详的“用户登录”功能作为测试对象，希望通过这样一个简单直白的功能帮助你理解如何做好测试，以及现阶段你需要加强和提高的测试技能。</p>
+<p>可能你会说，“用户登录”这个测试对象也有点太简单了吧，我只要找一个用户，让他在界面上输入用户名和密码，然后点击“确认”按钮，验证一下是否登录成功就可以了。的确，这构成了一个最基本、最典型的测试用例，这也是终端用户在使用系统时最典型的 Happy Path 场景。</p>
+<p>但是作为测试工程师，你的目标是要保证系统在各种应用场景下的功能是符合设计要求的，所以你需要考虑的测试用例就需要更多、更全面，于是你可能会根据“用户登录”功能的需求描述，结合等价类划分和边界值分析方法来设计一系列的测试用例。</p>
+<p>那什么是等价类划分和边界值分析方法呢？首先，这二者都隶属于最常用、最典型、也是最重要的黑盒测试方法。</p>
+<p>等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果。<br>边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。<br>从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
+<p>现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：</p>
+<p>输入已注册的用户名和正确的密码，验证是否登录成功；<br>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；<br>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</p>
+<p>的确，上面的测试用例集已经涵盖了主要的功能测试场景。但是在一个优秀的测试工程师眼中，这些用例只能达到勉强及格的标准。</p>
+<p>什么？才刚刚及格？如果你有这个想法，那我建议你在继续看下面的内容前，先仔细思考一下，这些测试用例是否真的还需要扩充。</p>
+<p>现在，我跟你分享一下有经验的测试工程师会再增加的测试用例：</p>
+<p>用户名和密码是否大小写敏感；<br>页面上的密码框是否加密显示；<br>后台系统创建的用户第一次登录成功时，是否提示修改密码；<br>忘记用户名和忘记密码的功能是否可用；<br>前端页面是否根据设计要求限制用户名和密码长度；<br>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用；<br>刷新页面是否会刷新验证码；<br>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性；<br>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面；<br>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确；<br>页面默认焦点是否定位在用户名的输入框中；<br>快捷键 Tab 和 Enter 等，是否可以正常使用。<br>看完这些用例，你可能会说：“哇塞，原来一个简简单单的登录功能居然有这么多需要测试的点”。但是，你别高兴得太早，“用户登录”功能的测试还没结束。</p>
+<p>虽然改进后的测试用例集相比之前的测试覆盖率的确已经提高了很多，但是站在资深测试人员的角度来看，还有很多用例需要设计。</p>
+<p>经我这么一说，你可能已经发现，上面所有的测试用例设计都是围绕显式功能性需求的验证展开的，换句话说，这些用例都是直接针对“用户登录”功能的功能性进行验证和测试的。</p>
+<p>但是，一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
+<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
+<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。 在上面所有的测试用例设计中，我们完全没有考虑对非功能性需求的测试，但这些往往是决定软件质量的关键因素。</p>
+<p>明白了非功能性需求测试的重要性后，你可以先思考一下还需要设计哪些测试用例，然后再来看看我会给出哪些用例，相信这种方式对你的帮助会更大。</p>
+<p>安全性测试用例包括：</p>
+<p>用户密码后台存储是否加密；<br>用户密码在网络传输过程中是否加密；<br>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码；<br>不登录的情况下，在浏览器中直接输入登录后的 URL 地址，验证是否会重新定向到用户登录界面；<br>密码输入框是否不支持复制和粘贴；<br>密码输入框内输入的密码是否都可以在页面源码模式下被查看；<br>用户名和密码的输入框中分别输入典型的“SQL 注入攻击”字符串，验证系统的返回页面；<br>用户名和密码的输入框中分别输入典型的“XSS 跨站脚本攻击”字符串，验证系统行为是否被篡改；<br>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；<br>同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；<br>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</p>
+<p>性能压力测试用例包括:</p>
+<p>单用户登录的响应时间是否小于 3 秒；<br>单用户登录时，后台请求数量是否过多；<br>高并发场景下用户登录的响应时间是否小于 5 秒；<br>高并发场景下服务端的监控指标是否符合预期；<br>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；<br>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。<br>兼容性测试用例包括：</p>
+<p>不同浏览器下，验证登录页面的显示以及功能正确性；<br>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；<br>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；<br>不同分辨率的界面下，验证登录页面的显示以及功能正确性。<br>说到这里，你还会觉得“用户登录”功能的测试非常简单、不值一提么？一个看似简单的功能测试，居然涵盖了如此多的测试用例，除了要覆盖明确的功能性需求，还需要考虑其他诸多的非功能性需求。</p>
+<p>另外，通过这些测试用例的设计，你也可以发现，一个优秀的测试工程师必须具有很宽广的知识面，如果你不能对被测系统的设计有深入的理解、不明白安全攻击的基本原理、没有掌握性能测试的基本设计方法，很难设计出“有的放矢”的测试用例。</p>
+<p>通过“用户登录”功能测试这个实例，我希望可以激发你对测试更多的思考，并且开拓你设计测试用例的思路，以达到抛砖引玉的效果。</p>
+<p>看完了这些测试用例，你可能会说还有一些遗漏的测试点没有覆盖到，这个功能的测试点还不够全面。那么，接下来我再跟你说说测试的不可穷尽性，即绝大多数情况下，是不可能进行穷尽测试的。</p>
+<p>所谓的“穷尽测试”是指包含了软件输入值和前提条件所有可能组合的测试方法，完成穷尽测试的系统里应该不残留任何未知的软件缺陷。 因为如果有未知的软件缺陷，你可以通过做更多的测试来找到它们，也就是说你的测试还没有穷尽。</p>
+<p>但是，在绝大多数的软件工程实践中，测试由于受限于时间成本和经济成本，是不可能去穷尽所有可能的组合的，而是采用基于风险驱动的模式，有所侧重地选择测试范围和设计测试用例，以寻求缺陷风险和研发成本之间的平衡。</p>
+<p>总结<br>首先，对于高质量的软件测试，用例设计不仅需要考虑明确的显式功能性需求，还要涉及兼容性、安全性和性能等一系列的非功能性需求，这些非功能性需求对软件系统的质量有着举足轻重的作用。</p>
+<p>其次，优秀的测试工程师必须具有宽广的知识面，才能设计出有针对性、更易于发现问题的测试用例。</p>
+<p>最后，软件测试的用例设计是不可穷尽的，工程实践中难免受制于时间成本和经济成本，所以优秀的测试工程师需要兼顾缺陷风险和研发成本之间的平衡。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/09/25-用户登录/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-24-进制相互转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -192,13 +284,10 @@
 <li>15 ——— F  ——— 1111</li>
 </ul>
 </li>
-<li>二进制转换成十六进制的方法是，取四合一法，即从二进制的小数点为分界点，向左（或向右）每四位取成一位</li>
-<li>组分好后，对照二进制与十六进制的对应表，将四位二进制按权相加，得到的数就是一位十六进制数，然后按顺序排列，小数点的位置不变，最后得到的就是十六进制数</li>
-<li>十六进制的表示法，用字母H后缀表示，比如BH就表示十六进制数11；也可以用OX前缀白哦是，比如OX23就是十六进制的23</li>
-<li>需要注意的是，在向左取四位时，取到最高位如果无法凑成四位，就可以在小数点的最左边补0，进行换算；同样向右取四位时，取到最低位如果无法凑成四位，就可以在小数点的最右边补0，进行换算</li>
-<li>将十六进制转为二进制时，反过来，方法就是一分四，即一个十六进制数分成四个二进制数，用四位二进制按权相加，最后得到二进制，小数点依旧就可以了</li>
 </ul>
-
+        
+          <a class="article-more-a" href="/2018/05/03/24-进制相互转换/#more">more >></a>
+        
       
 
       
@@ -261,7 +350,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>计算机系统运行时，各个部件之间要进行数据交换，为了确保数据在传递过程中正确无误，一是提高硬件电路的可靠性；二是提高代码的校验能力，包括查错和纠错。常用的三种校验码：奇数校验码（Parity codes）、海明码（Hamming Code）、循环冗余校验（Cyclic Redundancy,CRC）码。循环冗余校验码广泛应用于数据通信领域和磁介质存储系统中，它利用生成多项式为K个数据位产生r个校验位来进行编码，其编码长度为K+r。CRC的代码格式为：K个数据+r个校验码，即在k个数据位之后跟r个校验位</p>
-
+        
+          <a class="article-more-a" href="/2018/04/04/23-计算机组成和体系结构/#more">more >></a>
+        
       
 
       
@@ -348,23 +439,9 @@
 </ul>
 <p>为了使数据在网络上从源到达目的，网络通信的参与方必须遵循相同的规则，这套则称为协议（prorocol），它最终体现为在网络上传输的数据包的格式</p>
 <p>协议往往分成几个层次进行定义，分层定义是为了使某一协议的改变不影响其他层次的协议</p>
-<h3 id="ISO-OSI协议模型"><a href="#ISO-OSI协议模型" class="headerlink" title="ISO/OSI协议模型"></a>ISO/OSI协议模型</h3><p>国际标准化组织（ISO）为了规范协议层次的划分制定了开发系统互联（OSI，Open Systems Interconnection）模型，即ISO/OSI参考模型。此模型根据网络功能制定出7层网络协议结构，由低到高分别为物理层、数据链路层、网络层、传输层、会话层、表示层和应用层</p>
-<ul>
-<li>物理层：简单的说，物理层协议对与基本物理信号传输有关的机械、电气等功能进行描述。若生产相互连接的两个设备的两个厂商都遵循相同物理层规范，则二者必定能被链接在一起，并能接收对方发来的电、光或其他的物理信号，而且能正确地将这些物理信号理解为二进制的0和1序列。物理层只负责正确地1和发送比特，并不关心这些比特的具体含义。</li>
-<li>数据链路层：数据链路层简称链路层，它依赖物理层提供的比特传输能力把数据组织成为有边界的传输单位，称为“帧”。链路层把来自网络层的数据组织成“帧”，然后再通过物理层向外发送。当然，链路层也要负责从来自物理层的比特序列（或者字节序列）中区分出一个个的帧，并将帧中的数据传递给网络层。未来将各个帧区分开来，需要在帧的头部和尾部附加一些特点的信息，这个过程称为“封装”，其相反的过程称为“解封装”。“封装”的概念不只在链路层中存在，在更高的各层协议中同样存在。所有层上的“封装”问题的共同特征是把来自高层的封装单位根据本层的需要附加上特定信息形成本层的封装单位，然后向低层传递，同时把来自低层的数据解封装后向高层传递。另外，链路层还可以有其他的诸如差错校验、流量控制等功能，但要理解整个协议体系，则首先应记住它和帧之间的密切关系，因为帧使无头无尾的比特序列变成容易控制的有界单位</li>
-<li>网络层：网络层解决如何标识通信各方和数据如何从源到达目的这个问题。网络层用特定的网络层地址来标识整个网络中的一个节点，并负责使来自传输层的应该到达某个网络层地址的数据能够被送达这个网络层地址所对应的网络节点。网络层的封装单位称为“包”，“包”需要被进一步封装成链路层的帧然后才能通过物理层发送出去，而在接收方，包在链路层的帧中被解封装出来。最典型的网络层协议就是目前在Internet中使用的IP协议，它使用IP地址唯一地标识Internet中的一台主机，路由设备根据IP包中的目的IP地址将IP包一步步转发至目的主机。</li>
-<li>传输层：依赖物理层、数据链路层和网络层和网络层，任意一个网络节点都能把任何信息传递到其他任意节点，而传输层在物理层、数据链路层和网络层提供的节点间的通信能力基础上进一步提供了面向应用的服务。传递层向上层提供了屏蔽了传输细节的数据传输服务，将来自高层的数据进行分段并将来自低层的数据重组，对数据传输进行差错回复和流量控制。通过对每个网络节点的多个进程进行标识，传输层可以实现对网络层的多路复用</li>
-<li>会话层：会话层用于建立和管理不同主机的两个进程之间的对话。会话层可以管理对话，可允许对话在两个方向上同时进行，也可以强制对话同时只在一个方向上进行。在后一种情况下，会话层可以提供会话令牌来控制某时刻哪一方发生数据。会话层还可以提供同步服务，它可以在数据流中插入同步点，每当因网络出现故障而造成大量数据传输中断时，通过同步点机制可以使用两个进程之间的数据传输不需要从头开始，而是从最后一个同步点开始继续传输。</li>
-<li>表示层：表示层协议规定对来自应用层的数据如何进行表达，例如采用什么样的文字编码、是否及 如何进行压缩、是否及如何加密等。</li>
-<li>应用层：应用层是ISO/OSI模型中最靠近用户的一层，应用层协议直接面对用户的需求，例如与发送邮件相关的应用层协议可以规定诸如邮件地址的格式、邮件内容的段落表示、客户与服务器进行交互的命令串等。</li>
-</ul>
-<h3 id="常用的协议"><a href="#常用的协议" class="headerlink" title="常用的协议"></a>常用的协议</h3><ul>
-<li>TCP/IP是母亲啊最流行的网络协议，但TCP/IP协议在局域网中的通信效率并不高，使用它在浏览“网上邻居”中的计算机时，经常会出现不能正常浏览的现象。</li>
-<li>NetBEUI即NetBios Enhanced User Interface,或NetBios增强用户接口。它是NetBIOS协议的增强版本，曾被许多操作系统采用。是一种短小精悍、通信效率高的广播型协议，安装后不需要进行设置，特别适合于在“网络邻居”传送数据。所以建议除了TCP/I协议之外，小型局域网的计算机也可以安上NetBEUI协议。另外还有一点要注意，如果一台只装了TCP/IP协议的WINDOWS98机器要想加入到WINNT域，也必须安装NetBEUI协议</li>
-<li>IPX/SPX协议本来就是Novell开发的专用语NetWare网络中的协议，但是也非常常用——大部分可以联机的游戏都支持IPX/SPX协议，比如星际争霸 ，反恐精英等等。</li>
-</ul>
-<p><img src="../img/22-协议.png" alt="协议"></p>
-
+        
+          <a class="article-more-a" href="/2018/03/28/22-协议/#more">more >></a>
+        
       
 
       
@@ -428,25 +505,9 @@
       
         <h1 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a><a href="https://baike.baidu.com/item/%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8/284033?fr=aladdin&amp;fromid=368184&amp;fromtitle=%EF%BC%A3%EF%BC%B0%EF%BC%B5" target="_blank" rel="external">中央处理器</a></h1><p>中央处理器（Central Processing Unit）是一块超大规模的集成电路，是一台计算机的运算核心（Core）和控制核心（Control Unit），它的功能主要是解释计算机指令以及处理计算机软件中的数据</p>
 <p>中央处理器主要包括运算器（算数逻辑运算单元 ALU Arithmetic Logic Unit）和高速缓冲存储器（Cache）及实现它们之间联系的数据（Data）、控制及札幌肽的总线（Bus）。与内部存储器（Memory）二号输入/输出（I/O）设备合成为电子计算机三大核心部件。</p>
-<h2 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h2><p>CPU包括运算逻辑部件、寄存器部件和控制部件等</p>
-<h3 id="逻辑部件—Logic-components"><a href="#逻辑部件—Logic-components" class="headerlink" title="逻辑部件—Logic components"></a>逻辑部件—Logic components</h3><p>运算逻辑部件，可以执行定点或浮点算术运算操作、以为操作以及逻辑操作，也可执行地址运算和转换</p>
-<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><p>寄存器部件包括寄存器、专用寄存器和控制寄存器。通用寄存器又可分定点数和浮点数两类，它们用来保存指令执行过程中临时存放的寄存器操作数和中间（或最终）的操作结果。通用寄存器是中央处理器的重要部件之一</p>
-<h3 id="控制部件—Control-unit"><a href="#控制部件—Control-unit" class="headerlink" title="控制部件—Control unit"></a>控制部件—Control unit</h3><p>控制部件主要是负责对指令译码，并且发出为完成每条指令所要执行的各种操作的控制信号</p>
-<p>其结构有两种：一种是以微型存储为核心的微程序控制方式；一种是以逻辑硬布线为主的控制方式</p>
-<p>微存储中保持微码，每一个微码对应于一个最基本的微操作，又称微指令；各条指令是由不同序列的微码组成，这种微码序列构成微程序。中央处理器在对指令译码以后，即发出一定时序的控制信号，按给定序列的顺序以为周期为节拍执行由这些 微码确定的若干个微操作，即可完成某条指令的执行。</p>
-<p>简单指令是由（3-5）个微操作组成，复杂指令则要由几十个微操作组成</p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="处理指令—Proocessing-instrutions"><a href="#处理指令—Proocessing-instrutions" class="headerlink" title="处理指令—Proocessing instrutions"></a>处理指令—Proocessing instrutions</h3><p>这是指控制车呢供需中指令的执行顺序。程序中的各指令之间室友严格顺序的，必须严格按程序规定的顺序执行，才能保证计算机系统工作的正确性</p>
-<h3 id="执行操作-Perform-an-action"><a href="#执行操作-Perform-an-action" class="headerlink" title="执行操作 Perform an action"></a>执行操作 Perform an action</h3><p>一条指令的功能往往是由计算机中部件执行一系列的操作来实现的CPU要根据指令的功能，产生响应的操作控制信号，发给相应的部件，从而控制这些部件按指令的要求进行动作</p>
-<h3 id="控制时间—-Control-time"><a href="#控制时间—-Control-time" class="headerlink" title="控制时间— Control time"></a>控制时间— Control time</h3><p>时间控制就是对各种操作实施时间上的定时。在一条指令的执行过程中，在什么时间做什么操作均应收到严格的控制。只有这样，计算机才能有条不紊地工作</p>
-<h3 id="处理数据"><a href="#处理数据" class="headerlink" title="处理数据"></a>处理数据</h3><p>即对数据进行算数运算和逻辑运算，或进行其他的信息处理</p>
-<p>其功能主要是解释计算机指令以及处理计算机软件中的数据，并执行指令。在微型计算机中又称微处理器，计算机的所有操作都受CPU控制，CPU的性能指标直接决定了微机系统的性能指标。CPU具有以下4个方面的基本功能：数据通信、资源共享、分布式处理、提供系统共可靠性。运作原理可基本分为四个阶段：提取（Fetch）、解码（Decode）、执行（Ececute）和写回（Writeback）。</p>
-<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><p>CPU从存储器或高速缓冲存储器中取出指令，放入指令寄存器，并对指令译码。它把指令分解成一系列的微操作，然后发出各种控制命令，执行微操作系列，从而完成一条指令的执行。指令是计算机规定执行操作的类型和操作数的基本命令。指令是由一个字节或者多个字节组成，其中包括操作码字段、一个或多个有关操作数地址的字段以及一些表征机器状态的状态字以及特征码。有的指令中也直接包含操作数本身。</p>
-<h3 id="提取"><a href="#提取" class="headerlink" title="提取"></a>提取</h3><p>第一阶段，提取，从存储器或高速缓冲存储器中检索指令（为数值或一系列数值）。由程序计数器（Program Counter）指定存储器的位置。（程序计数器保存供识别程序位置的数值。换言之，程序计数器记录了CPU在程序里的踪迹）</p>
-<h3 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h3><p>CPU根据存储器提取到的指令来决定其执行行为。在解码阶段，指令被拆解为有意义的片段。根据CPU的指令集架构（ISA）定义将数值解译为指令。一部分的指令数值为运算码（Opcode），其指示要进行哪些运算。其它的数值通常供给指令必要的信息，诸如一个加法（Addition）运算的运算目标。</p>
-<h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><p>在提取和解码阶段之后，紧接着进入执行阶段。该阶段中，连接到各种能够进行所需运算的CPU部件。</p>
-<p>例如，要求一个加法运算，算术逻辑单元（ALU Arithmetic Logic Unit）将会连接到一组输入和一组输出。输入提供了要相加的数值，而输出将含有总和的结果。ALU内含电路系统，易于输出端完成简单的普通运算和逻辑运算（比如加法和位元运算）。如果加法运算产生一个对该CPU处理而言过大的结果，在标志暂存器里可能会设置溢出（Arithmetic Overflow）标志。</p>
-<h3 id="写回"><a href="#写回" class="headerlink" title="写回"></a>写回</h3><p>最终阶段，写回，以一定格式将执行阶段的结果简单写回。运算结果经常被写进CPU内部的暂存器，以供随后指令快速存取。在其它案例中，运算结果可能写进速度较慢，但容量较大且较便宜的主记忆体中。某些类型的指令会操作程序计数器，而不直接产生结果。这些一般称作“跳转”（Jumps），并在程式中带来循环行为、条件性执行（投过条件跳转）和函式。许多指令会改变标志暂存器的状态位元。这些标志可用来影响程式行为，缘由于它们时常显出各种运算结果。例如，以一个“比较”指令判断两个值大小，根据比较结果在标志暂存器上设置一个数值。这个标志可藉由随后跳转指令来决定程式动向。在执行指令并写回结果之后，程序 计数器值会递增，反复整个过程，下一个指令周期正常的提取下一个顺序指令。</p>
-
+        
+          <a class="article-more-a" href="/2018/03/21/21-CPU/#more">more >></a>
+        
       
 
       
@@ -915,90 +976,6 @@
 
 
   
-    <article id="post-16-如何避免漏测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/12/16-如何避免漏测/">如何避免漏测</a>
-    </h1>
-  
-
-        
-        <a href="/2018/02/12/16-如何避免漏测/" class="archive-article-date">
-  	<time datetime="2018-02-12T06:26:14.580Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先，漏测这种情况不能百分百地杜绝，所以我们需要使用测试手段或者测试方法来尽量减少漏测现象的出现。</p>
-<ul>
-<li>在测试之前：</li>
-</ul>
-<p>首先，我们会对需求进行分析，然后再进行需求评审，评审时将产品经理、开发、测试集合在一起开一个评审会议，一起对本次迭代的需求进行讲解，通过评审会议之后测试人员一定要将需求吃透，只有需求完全理解到位，测试工作才能顺利进行。<br>
-        
-          <a class="article-more-a" href="/2018/02/12/16-如何避免漏测/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">漏测</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/12/16-如何避免漏测/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1096,10 +1073,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
@@ -1113,6 +1086,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1140,11 +1117,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1160,7 +1137,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">易用性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,19 +1153,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">易用性</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">处女座</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1192,11 +1161,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
+                <a href="javascript:void(0)" class="js-tag color4">处女座</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
             
             <div class="clearfix"></div>
