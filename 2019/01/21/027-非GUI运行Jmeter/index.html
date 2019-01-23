@@ -8,22 +8,21 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>非GUI运行Jmeter | LifengGeng</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境配置 本机环境说明：  VMware® Workstation 12 Pro   CentOS 7*64位  Win10  FileZilla    jdk1.8   选择安装版本  一般去官网，根据自己的环境选择版本 我这里选择jdk-8u201-linux-x64.tar.gz    下载安装包  windows下载上传 wget 直接下载1234$ cd /usr/local$ mkd">
+  <meta name="description" content="一、非GUI运行JMeter优点 非图形化执行模式，节约系统资源 可通过shell脚本命令执行,更容易实现多工具集整合 当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="非GUI运行Jmeter">
 <meta property="og:url" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/index.html">
 <meta property="og:site_name" content="LifengGeng">
-<meta property="og:description" content="环境配置 本机环境说明：  VMware® Workstation 12 Pro   CentOS 7*64位  Win10  FileZilla    jdk1.8   选择安装版本  一般去官网，根据自己的环境选择版本 我这里选择jdk-8u201-linux-x64.tar.gz    下载安装包  windows下载上传 wget 直接下载1234$ cd /usr/local$ mkd">
+<meta property="og:description" content="一、非GUI运行JMeter优点 非图形化执行模式，节约系统资源 可通过shell脚本命令执行,更容易实现多工具集整合 当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-1.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-2.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-3.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-4.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-5.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-6.png">
-<meta property="og:updated_time" content="2019-01-23T05:10:27.864Z">
+<meta property="og:updated_time" content="2019-01-23T09:43:10.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="非GUI运行Jmeter">
-<meta name="twitter:description" content="环境配置 本机环境说明：  VMware® Workstation 12 Pro   CentOS 7*64位  Win10  FileZilla    jdk1.8   选择安装版本  一般去官网，根据自己的环境选择版本 我这里选择jdk-8u201-linux-x64.tar.gz    下载安装包  windows下载上传 wget 直接下载1234$ cd /usr/local$ mkd">
+<meta name="twitter:description" content="一、非GUI运行JMeter优点 非图形化执行模式，节约系统资源 可通过shell脚本命令执行,更容易实现多工具集整合 当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-1.png">
   
     <link rel="alternative" href="/atom.xml" title="LifengGeng" type="application/atom+xml">
@@ -180,8 +179,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><blockquote>
+        <h2 id="一、非GUI运行JMeter优点"><a href="#一、非GUI运行JMeter优点" class="headerlink" title="一、非GUI运行JMeter优点"></a>一、非GUI运行JMeter优点</h2><ul>
+<li>非图形化执行模式，节约系统资源</li>
+<li>可通过shell脚本命令执行,更容易实现多工具集整合</li>
+<li>当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的</li>
+</ul>
+<a id="more"></a>
+<h2 id="二、环境配置"><a href="#二、环境配置" class="headerlink" title="二、环境配置"></a>二、环境配置</h2><blockquote>
 <p>本机环境说明：</p>
 <ul>
 <li>VMware® Workstation 12 Pro  </li>
@@ -199,7 +203,7 @@
 </li>
 <li><p>下载安装包</p>
 <ul>
-<li>windows下载上传</li>
+<li>windows下载后，使用filezilla上传</li>
 <li>wget 直接下载<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local</div><div class="line">$ mkdir java</div><div class="line">$ cd java</div><div class="line">$ wget http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -208,7 +212,11 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ tar  -zxvf  jdk-8u131-linux-x64.tar.gz</div><div class="line">$ rm -f jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
 </li>
 <li><p>配置环境变量</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/profile </div><div class="line"></div><div class="line">// 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</div><div class="line"></div><div class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib:$CLASSPATH</div><div class="line">export JAVA_PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;JRE_HOME&#125;/bin</div><div class="line">export PATH=$PATH:$&#123;JAVA_PATH&#125;</div><div class="line"></div><div class="line">// 按Esc后 :wq 保存 </div><div class="line"></div><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/profile</div></pre></td></tr></table></figure>
+<p> 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib:$CLASSPATH</div><div class="line">export JAVA_PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;JRE_HOME&#125;/bin</div><div class="line">export PATH=$PATH:$&#123;JAVA_PATH&#125;</div></pre></td></tr></table></figure>
+<p> // 按Esc后 :wq 保存 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure>
 </li>
 <li><p>验证jdk是否装好</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 在任意目录下执行</div><div class="line">$ javac</div><div class="line">$ java --version</div><div class="line">$ echo $PATH</div></pre></td></tr></table></figure>
@@ -233,29 +241,74 @@
 </ul>
 </li>
 <li><p>给nmon执行权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv nmon_x86_64_centos7 nmon</div><div class="line">$ chmod +x nmon</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv nmon_x86_64_centos7 nmon</div><div class="line">$ chmod +x nmon</div></pre></td></tr></table></figure>
 </li>
 <li><p>验证是否可以正常运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./nmon</div></pre></td></tr></table></figure>
-<p><img src="img/027-5.png" alt="nmon成功安装"></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./nmon</div></pre></td></tr></table></figure>
+<p> <img src="img/027-5.png" alt="nmon成功安装"></p>
 </li>
 </ol>
 </li>
 <li><p>jmeter5.0 安装</p>
 <ol>
-<li><p>下载安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目前官网最新是5.0版本</div><div class="line">$ wget http://mirrors.shu.edu.cn/apache//jmeter/binaries/apache-jmeter-5.0.zip</div><div class="line">$ unzip apache-jmeter-5.0.zip</div><div class="line">$ rm -f apache-jmeter-5.0.zip</div></pre></td></tr></table></figure>
+<li><p>下载安装包 /usr/local</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目前官网最新是5.0版本</div><div class="line">$ wget http://mirrors.shu.edu.cn/apache//jmeter/binaries/apache-jmeter-5.0.zip</div><div class="line">$ unzip apache-jmeter-5.0.zip</div><div class="line">$ rm -f apache-jmeter-5.0.zip</div></pre></td></tr></table></figure>
 </li>
-<li><p>给jmeter.sh 赋权</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd apache-jmeter-5.0/bin</div><div class="line">$ chmod +x jmeter.sh</div></pre></td></tr></table></figure>
-<p>3.验证jmeter是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sh jmeter.sh -v</div></pre></td></tr></table></figure>
-<p><img src="img/027-6.png" alt="jmeter"></p>
-</li>
+<li><p>配置jmeter环境变量</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/profile</div></pre></td></tr></table></figure>
+<p> 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export JMETER_HOME=/usr/local/apache-jmeter-5.0.</div><div class="line">export CLASSPATH=$JMETER_HOME/lib/ext/ApacheJMeter_core.jar:$JMETER_HOME/lib/jorphan.jar:$JMETER_HOME/lib/logkit-2.0.jar:$CLASSPATH</div><div class="line">export PATH=$JMETER_HOME/bin:$PATH:$HOME/bin</div></pre></td></tr></table></figure>
+<p> // 按Esc后 :wq 保存 </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    $ source /etc/profile</div><div class="line">    ```    </div><div class="line">3. 给jmeter执行权限</div></pre></td></tr></table></figure>
+<p> $ cd apache-jmeter-5.0/bin<br> $ chmod +x jmeter.sh</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 验证jmeter是否安装成功</div></pre></td></tr></table></figure>
+<p> $ jmeter –version</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">        ![jmeter](img/027-6.png)</div><div class="line"></div><div class="line">## 三、测试执行</div><div class="line"></div><div class="line">1. nmon监控服务器性能</div><div class="line"></div><div class="line">    nmon执行命令</div></pre></td></tr></table></figure>
+<p>nmon -s 300 -c 288 -f -m /logs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参数介绍：</div></pre></td></tr></table></figure>
+<p>-s 采样频率 单位s 缺省值2s<br>-c 采样次数<br>-f 指定输出使用电子表格格式，默认输出是机器名+日期.nmon的格式<br>-m 在命令将数据保存至文件之前切换目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    一般为方便查看Nmon给出的数据，让结果文件控制在便于查看的大小，在jmeter执行前就将nmon开启，在执行完一次脚本后，过一段时间后将nmon停掉（以便观察脚本执行完后，服务器释放情况，一般几分钟到半个小时不等，具体脚本执行情况具体分析），所得出的log文件为本次jmeter脚本执行过程中服务器资源情况。</div><div class="line"></div><div class="line">    ![nmon](img/027-7.png)</div><div class="line"></div><div class="line">2. jmeter脚本上传、场景设计及执行</div><div class="line"></div><div class="line">    1. jmeter脚本编写</div><div class="line"></div><div class="line">        * 在test.jmx文件中，只需要将需要参数化的变量使用$&#123;__P(xxx,)&#125;来代替 </div><div class="line">            ![jmx脚本](img/027-8.png)</div><div class="line">    </div><div class="line">    2. jmeter脚本上传</div><div class="line"></div><div class="line">        * 上传到自定义目录 /home/jmtest/test/scripts</div><div class="line"></div><div class="line">    3. jmeter执行命令（脚本）</div><div class="line">        * 执行jmeter命令</div></pre></td></tr></table></figure>
+<pre><code>jmeter -n -t &lt;testplan filename&gt; -l &lt;listener filename&gt;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">参数介绍：</div></pre></td></tr></table></figure>
+
+-n 非 GUI 模式 -&gt; 在非 GUI 模式下运行 JMeter
+-t 测试文件 -&gt; 要运行的 JMeter 测试脚本文件
+-l 日志文件 -&gt; 记录结果的文件
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* 编写执行脚本 (当参数较多时，建议采用这种方法)</div></pre></td></tr></table></figure>
+
+THREAD=$1
+LOOP=$2
+SCRIPT=$3
+MQ=$4
+
+TABLE=weather.beijing.grid.test
+ESTYPE=3
+DATE=20190114
+FROM=100000000
+TO=230000000
+IP=127.0.0.1
+PORT=7000
+
+jmeter -Jthread=$THREAD -Jloop=$LOOP -Jtable=$TABLE -Jestype=$ESTYPE -Jdate=$DATE -Jfrom=$FROM -Jto=$TO -Jip=$IP -Jport=$PORT -n -t $SCRIPT -l ./gridwrite/write_$MQ-T$1-L$2.jtl
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">脚本执行命令：</div></pre></td></tr></table></figure>
+
+$ ./run.sh 100 1000 scripts/esdb_grid_3.jmx 3
+```
+
+* $1=100 使用100个线程
+* $2=1000 每个线程发送1000次请求
+* $3 执行脚本为scripts/esdb_grid_3.jmx
+* $4 每个请求中包含三条数据
+* 结果文件将写入./gridwrite/write_3-T100-L1000.jtl中
+</code></pre></li>
 </ol>
 </li>
 </ol>
-<h2 id="测试执行"><a href="#测试执行" class="headerlink" title="测试执行"></a>测试执行</h2>
+<h2 id="四、结果分析"><a href="#四、结果分析" class="headerlink" title="四、结果分析"></a>四、结果分析</h2><ol>
+<li>将nmon的log文件下载后，使用 打开后，即可得出CPU、内存、网络等服务器资源监控情况</li>
+<li>将jmeter执行完成后的.jtl文件下载下来后，使用jmeter打开，即可得到执行结果；</li>
+</ol>
+
       
 
       
@@ -494,19 +547,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常用</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +575,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +583,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,10 +592,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">安全认证协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,14 +615,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
@@ -582,11 +623,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
             
             <div class="clearfix"></div>

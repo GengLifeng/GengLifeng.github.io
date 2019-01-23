@@ -171,82 +171,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><blockquote>
-<p>本机环境说明：</p>
-<ul>
-<li>VMware® Workstation 12 Pro  </li>
-<li>CentOS 7*64位 </li>
-<li>Win10 </li>
-<li>FileZilla</li>
+        <h2 id="一、非GUI运行JMeter优点"><a href="#一、非GUI运行JMeter优点" class="headerlink" title="一、非GUI运行JMeter优点"></a>一、非GUI运行JMeter优点</h2><ul>
+<li>非图形化执行模式，节约系统资源</li>
+<li>可通过shell脚本命令执行,更容易实现多工具集整合</li>
+<li>当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的</li>
 </ul>
-</blockquote>
-<ol>
-<li><p>jdk1.8 </p>
-<ol>
-<li><p>选择安装版本</p>
-<p> 一般去官网，根据自己的环境选择版本 我这里选择jdk-8u201-linux-x64.tar.gz</p>
-<p> <img src="img/027-1.png" alt="jdk版本"></p>
-</li>
-<li><p>下载安装包</p>
-<ul>
-<li>windows下载上传</li>
-<li>wget 直接下载<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local</div><div class="line">$ mkdir java</div><div class="line">$ cd java</div><div class="line">$ wget http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>将安装包解压到 /usr/local/java</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ tar  -zxvf  jdk-8u131-linux-x64.tar.gz</div><div class="line">$ rm -f jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
-</li>
-<li><p>配置环境变量</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/profile </div><div class="line"></div><div class="line">// 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</div><div class="line"></div><div class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib:$CLASSPATH</div><div class="line">export JAVA_PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;JRE_HOME&#125;/bin</div><div class="line">export PATH=$PATH:$&#123;JAVA_PATH&#125;</div><div class="line"></div><div class="line">// 按Esc后 :wq 保存 </div><div class="line"></div><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure>
-</li>
-<li><p>验证jdk是否装好</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 在任意目录下执行</div><div class="line">$ javac</div><div class="line">$ java --version</div><div class="line">$ echo $PATH</div></pre></td></tr></table></figure>
-<p> <img src="img/027-2.png" alt="jdk验证"></p>
-<p> <img src="img/027-3.png" alt="jdk验证"></p>
-</li>
-</ol>
-</li>
-<li><p>nmon安装</p>
-<ol>
-<li><p>选择安装版本</p>
-<ul>
-<li><p>nmon_x86_64_centos7</p>
-<p>  <img src="img/027-4.png" alt="nmon版本"></p>
-</li>
-</ul>
-</li>
-<li><p>下载并安装 /usr/local/nmon</p>
-<ul>
-<li>win下载 解压 上传</li>
-<li>wget直接下载 解压</li>
-</ul>
-</li>
-<li><p>给nmon执行权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv nmon_x86_64_centos7 nmon</div><div class="line">$ chmod +x nmon</div></pre></td></tr></table></figure>
-</li>
-<li><p>验证是否可以正常运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./nmon</div></pre></td></tr></table></figure>
-<p><img src="img/027-5.png" alt="nmon成功安装"></p>
-</li>
-</ol>
-</li>
-<li><p>jmeter5.0 安装</p>
-<ol>
-<li><p>下载安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目前官网最新是5.0版本</div><div class="line">$ wget http://mirrors.shu.edu.cn/apache//jmeter/binaries/apache-jmeter-5.0.zip</div><div class="line">$ unzip apache-jmeter-5.0.zip</div><div class="line">$ rm -f apache-jmeter-5.0.zip</div></pre></td></tr></table></figure>
-</li>
-<li><p>给jmeter.sh 赋权</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd apache-jmeter-5.0/bin</div><div class="line">$ chmod +x jmeter.sh</div></pre></td></tr></table></figure>
-<p>3.验证jmeter是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sh jmeter.sh -v</div></pre></td></tr></table></figure>
-<p><img src="img/027-6.png" alt="jmeter"></p>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="测试执行"><a href="#测试执行" class="headerlink" title="测试执行"></a>测试执行</h2>
+        
+          <a class="article-more-a" href="/2019/01/21/027-非GUI运行Jmeter/#more">more >></a>
+        
       
 
       
@@ -1074,19 +1006,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">常用</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,7 +1034,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1110,7 +1042,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,10 +1051,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">安全认证协议</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,14 +1074,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
@@ -1162,11 +1082,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">自动化测试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
             
             <div class="clearfix"></div>
