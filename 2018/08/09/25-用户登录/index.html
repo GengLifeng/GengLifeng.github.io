@@ -14,7 +14,7 @@
 <meta property="og:url" content="http://yoursite.com/2018/08/09/25-用户登录/index.html">
 <meta property="og:site_name" content="LifengGeng">
 <meta property="og:description" content="作为专栏的第一篇文章，我选择了一个你耳熟能详的“用户登录”功能作为测试对象，希望通过这样一个简单直白的功能帮助你理解如何做好测试，以及现阶段你需要加强和提高的测试技能。 可能你会说，“用户登录”这个测试对象也有点太简单了吧，我只要找一个用户，让他在界面上输入用户名和密码，然后点击“确认”按钮，验证一下是否登录成功就可以了。的确，这构成了一个最基本、最典型的测试用例，这也是终端用户在使用系统时最典型">
-<meta property="og:updated_time" content="2018-08-24T06:52:25.175Z">
+<meta property="og:updated_time" content="2018-08-24T10:09:45.401Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用户登录测试用例讲解">
 <meta name="twitter:description" content="作为专栏的第一篇文章，我选择了一个你耳熟能详的“用户登录”功能作为测试对象，希望通过这样一个简单直白的功能帮助你理解如何做好测试，以及现阶段你需要加强和提高的测试技能。 可能你会说，“用户登录”这个测试对象也有点太简单了吧，我只要找一个用户，让他在界面上输入用户名和密码，然后点击“确认”按钮，验证一下是否登录成功就可以了。的确，这构成了一个最基本、最典型的测试用例，这也是终端用户在使用系统时最典型">
@@ -178,6 +178,7 @@
 <p>但是作为测试工程师，你的目标是要保证系统在各种应用场景下的功能是符合设计要求的，所以你需要考虑的测试用例就需要更多、更全面，于是你可能会根据“用户登录”功能的需求描述，结合等价类划分和边界值分析方法来设计一系列的测试用例。</p>
 <p>那什么是等价类划分和边界值分析方法呢？首先，这二者都隶属于最常用、最典型、也是最重要的黑盒测试方法。</p>
 <p>等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果。<br>边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。<br>从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
+<a id="more"></a>
 <p>现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：</p>
 <p>输入已注册的用户名和正确的密码，验证是否登录成功；<br>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；<br>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</p>
 <p>的确，上面的测试用例集已经涵盖了主要的功能测试场景。但是在一个优秀的测试工程师眼中，这些用例只能达到勉强及格的标准。</p>
@@ -306,6 +307,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2018/08/24/026-Linux命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          用户登录测试用例讲解
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/05/03/24-进制相互转换/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">进制相互转换</div>
@@ -351,7 +361,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Lifeng Geng
+    		&copy; 2019 Lifeng Geng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -446,7 +456,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +464,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">postman</a>
+                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,7 +476,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color3">postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -478,11 +484,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -494,6 +500,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
@@ -502,7 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">易用性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,19 +532,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">

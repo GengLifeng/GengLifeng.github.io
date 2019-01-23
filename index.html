@@ -151,6 +151,205 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-027-非GUI运行Jmeter" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/21/027-非GUI运行Jmeter/">非GUI运行Jmeter</a>
+    </h1>
+  
+
+        
+        <a href="/2019/01/21/027-非GUI运行Jmeter/" class="archive-article-date">
+  	<time datetime="2019-01-21T06:26:11.965Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><blockquote>
+<p>本机环境说明：</p>
+<ul>
+<li>VMware® Workstation 12 Pro  </li>
+<li>CentOS 7*64位 </li>
+<li>Win10 </li>
+<li>FileZilla</li>
+</ul>
+</blockquote>
+<ol>
+<li><p>jdk1.8 </p>
+<ol>
+<li><p>选择安装版本</p>
+<p> 一般去官网，根据自己的环境选择版本 我这里选择jdk-8u201-linux-x64.tar.gz</p>
+<p> <img src="img/027-1.png" alt="jdk版本"></p>
+</li>
+<li><p>下载安装包</p>
+<ul>
+<li>windows下载上传</li>
+<li>wget 直接下载<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd /usr/local</div><div class="line">$ mkdir java</div><div class="line">$ cd java</div><div class="line">$ wget http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>将安装包解压到 /usr/local/java</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ tar  -zxvf  jdk-8u131-linux-x64.tar.gz</div><div class="line">$ rm -f jdk-8u131-linux-x64.tar.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>配置环境变量</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/profile </div><div class="line"></div><div class="line">// 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</div><div class="line"></div><div class="line">export JAVA_HOME=/usr/java/jdk1.8.0_131</div><div class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</div><div class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib:$CLASSPATH</div><div class="line">export JAVA_PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;JRE_HOME&#125;/bin</div><div class="line">export PATH=$PATH:$&#123;JAVA_PATH&#125;</div><div class="line"></div><div class="line">// 按Esc后 :wq 保存 </div><div class="line"></div><div class="line">$ source /etc/profile</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证jdk是否装好</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 在任意目录下执行</div><div class="line">$ javac</div><div class="line">$ java --version</div><div class="line">$ echo $PATH</div></pre></td></tr></table></figure>
+<p> <img src="img/027-2.png" alt="jdk验证"></p>
+<p> <img src="img/027-3.png" alt="jdk验证"></p>
+</li>
+</ol>
+</li>
+<li><p>nmon安装</p>
+<ol>
+<li><p>选择安装版本</p>
+<ul>
+<li><p>nmon_x86_64_centos7</p>
+<p>  <img src="img/027-4.png" alt="nmon版本"></p>
+</li>
+</ul>
+</li>
+<li><p>下载并安装 /usr/local/nmon</p>
+<ul>
+<li>win下载 解压 上传</li>
+<li>wget直接下载 解压</li>
+</ul>
+</li>
+<li><p>给nmon执行权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv nmon_x86_64_centos7 nmon</div><div class="line">$ chmod +x nmon</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证是否可以正常运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./nmon</div></pre></td></tr></table></figure>
+<p><img src="img/027-5.png" alt="nmon成功安装"></p>
+</li>
+</ol>
+</li>
+<li><p>jmeter5.0 安装</p>
+<ol>
+<li><p>下载安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目前官网最新是5.0版本</div><div class="line">$ wget http://mirrors.shu.edu.cn/apache//jmeter/binaries/apache-jmeter-5.0.zip</div><div class="line">$ unzip apache-jmeter-5.0.zip</div><div class="line">$ rm -f apache-jmeter-5.0.zip</div></pre></td></tr></table></figure>
+</li>
+<li><p>给jmeter.sh 赋权</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd apache-jmeter-5.0/bin</div><div class="line">$ chmod +x jmeter.sh</div></pre></td></tr></table></figure>
+<p>3.验证jmeter是否安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sh jmeter.sh -v</div></pre></td></tr></table></figure>
+<p><img src="img/027-6.png" alt="jmeter"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="测试执行"><a href="#测试执行" class="headerlink" title="测试执行"></a>测试执行</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/01/21/027-非GUI运行Jmeter/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-026-Linux命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/24/026-Linux命令/">用户登录测试用例讲解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/24/026-Linux命令/" class="archive-article-date">
+  	<time datetime="2018-08-24T10:10:33.504Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/24/026-Linux命令/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-25-用户登录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -176,32 +375,9 @@
 <p>但是作为测试工程师，你的目标是要保证系统在各种应用场景下的功能是符合设计要求的，所以你需要考虑的测试用例就需要更多、更全面，于是你可能会根据“用户登录”功能的需求描述，结合等价类划分和边界值分析方法来设计一系列的测试用例。</p>
 <p>那什么是等价类划分和边界值分析方法呢？首先，这二者都隶属于最常用、最典型、也是最重要的黑盒测试方法。</p>
 <p>等价类划分方法，是将所有可能的输入数据划分成若干个子集，在每个子集中，如果任意一个输入数据对于揭露程序中潜在错误都具有同等效果，那么这样的子集就构成了一个等价类。后续只要从每个等价类中任意选取一个值进行测试，就可以用少量具有代表性的测试输入取得较好的测试覆盖结果。<br>边界值分析方法，是选取输入、输出的边界值进行测试。因为通常大量的软件错误是发生在输入或输出范围的边界上，所以需要对边界值进行重点测试，通常选取正好等于、刚刚大于或刚刚小于边界的值作为测试数据。<br>从方法论上可以看出来，边界值分析是对等价类划分的补充，所以这两种测试方法经常结合起来使用。</p>
-<p>现在，针对“用户登录”功能，基于等价类划分和边界值分析方法，我们设计的测试用例包括：</p>
-<p>输入已注册的用户名和正确的密码，验证是否登录成功；<br>输入已注册的用户名和不正确的密码，验证是否登录失败，并且提示信息正确；<br>输入未注册的用户名和任意密码，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者都为空，验证是否登录失败，并且提示信息正确；<br>用户名和密码两者之一为空，验证是否登录失败，并且提示信息正确；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入正确的验证码，验证是否登录成功；<br>如果登录功能启用了验证码功能，在用户名和密码正确的前提下，输入错误的验证码，验证是否登录失败，并且提示信息正确。<br>列出这些测试用例后，你可能已经觉得比较满意了，因为你感觉已经把自己的测试知识都用在这些用例设计中了。</p>
-<p>的确，上面的测试用例集已经涵盖了主要的功能测试场景。但是在一个优秀的测试工程师眼中，这些用例只能达到勉强及格的标准。</p>
-<p>什么？才刚刚及格？如果你有这个想法，那我建议你在继续看下面的内容前，先仔细思考一下，这些测试用例是否真的还需要扩充。</p>
-<p>现在，我跟你分享一下有经验的测试工程师会再增加的测试用例：</p>
-<p>用户名和密码是否大小写敏感；<br>页面上的密码框是否加密显示；<br>后台系统创建的用户第一次登录成功时，是否提示修改密码；<br>忘记用户名和忘记密码的功能是否可用；<br>前端页面是否根据设计要求限制用户名和密码长度；<br>如果登录功能需要验证码，点击验证码图片是否可以更换验证码，更换后的验证码是否可用；<br>刷新页面是否会刷新验证码；<br>如果验证码具有时效性，需要分别验证时效内和时效外验证码的有效性；<br>用户登录成功但是会话超时后，继续操作是否会重定向到用户登录界面；<br>不同级别的用户，比如管理员用户和普通用户，登录系统后的权限是否正确；<br>页面默认焦点是否定位在用户名的输入框中；<br>快捷键 Tab 和 Enter 等，是否可以正常使用。<br>看完这些用例，你可能会说：“哇塞，原来一个简简单单的登录功能居然有这么多需要测试的点”。但是，你别高兴得太早，“用户登录”功能的测试还没结束。</p>
-<p>虽然改进后的测试用例集相比之前的测试覆盖率的确已经提高了很多，但是站在资深测试人员的角度来看，还有很多用例需要设计。</p>
-<p>经我这么一说，你可能已经发现，上面所有的测试用例设计都是围绕显式功能性需求的验证展开的，换句话说，这些用例都是直接针对“用户登录”功能的功能性进行验证和测试的。</p>
-<p>但是，一个质量过硬的软件系统，除了显式功能性需求以外，其他的非功能性需求即隐式功能性需求也是极其关键的。</p>
-<p>显式功能性需求（Functional requirement）的含义从字面上就可以很好地理解，指的是软件本身需要实现的具体功能， 比如“正常用户使用正确的用户名和密码可以成功登录”、“非注册用户无法登录”等，这都是属于典型的显式功能性需求描述。</p>
-<p>那什么是非功能性需求（Non-functional requirement）呢？从软件测试的维度来看，非功能性需求主要涉及安全性、性能以及兼容性三大方面。 在上面所有的测试用例设计中，我们完全没有考虑对非功能性需求的测试，但这些往往是决定软件质量的关键因素。</p>
-<p>明白了非功能性需求测试的重要性后，你可以先思考一下还需要设计哪些测试用例，然后再来看看我会给出哪些用例，相信这种方式对你的帮助会更大。</p>
-<p>安全性测试用例包括：</p>
-<p>用户密码后台存储是否加密；<br>用户密码在网络传输过程中是否加密；<br>密码是否具有有效期，密码有效期到期后，是否提示需要修改密码；<br>不登录的情况下，在浏览器中直接输入登录后的 URL 地址，验证是否会重新定向到用户登录界面；<br>密码输入框是否不支持复制和粘贴；<br>密码输入框内输入的密码是否都可以在页面源码模式下被查看；<br>用户名和密码的输入框中分别输入典型的“SQL 注入攻击”字符串，验证系统的返回页面；<br>用户名和密码的输入框中分别输入典型的“XSS 跨站脚本攻击”字符串，验证系统行为是否被篡改；<br>连续多次登录失败情况下，系统是否会阻止后续的尝试以应对暴力破解；<br>同一用户在同一终端的多种浏览器上登录，验证登录功能的互斥性是否符合设计预期；<br>同一用户先后在多台终端的浏览器上登录，验证登录是否具有互斥性。</p>
-<p>性能压力测试用例包括:</p>
-<p>单用户登录的响应时间是否小于 3 秒；<br>单用户登录时，后台请求数量是否过多；<br>高并发场景下用户登录的响应时间是否小于 5 秒；<br>高并发场景下服务端的监控指标是否符合预期；<br>高集合点并发场景下，是否存在资源死锁和不合理的资源等待；<br>长时间大量用户连续登录和登出，服务器端是否存在内存泄漏。<br>兼容性测试用例包括：</p>
-<p>不同浏览器下，验证登录页面的显示以及功能正确性；<br>相同浏览器的不同版本下，验证登录页面的显示以及功能正确性；<br>不同移动设备终端的不同浏览器下，验证登录页面的显示以及功能正确性；<br>不同分辨率的界面下，验证登录页面的显示以及功能正确性。<br>说到这里，你还会觉得“用户登录”功能的测试非常简单、不值一提么？一个看似简单的功能测试，居然涵盖了如此多的测试用例，除了要覆盖明确的功能性需求，还需要考虑其他诸多的非功能性需求。</p>
-<p>另外，通过这些测试用例的设计，你也可以发现，一个优秀的测试工程师必须具有很宽广的知识面，如果你不能对被测系统的设计有深入的理解、不明白安全攻击的基本原理、没有掌握性能测试的基本设计方法，很难设计出“有的放矢”的测试用例。</p>
-<p>通过“用户登录”功能测试这个实例，我希望可以激发你对测试更多的思考，并且开拓你设计测试用例的思路，以达到抛砖引玉的效果。</p>
-<p>看完了这些测试用例，你可能会说还有一些遗漏的测试点没有覆盖到，这个功能的测试点还不够全面。那么，接下来我再跟你说说测试的不可穷尽性，即绝大多数情况下，是不可能进行穷尽测试的。</p>
-<p>所谓的“穷尽测试”是指包含了软件输入值和前提条件所有可能组合的测试方法，完成穷尽测试的系统里应该不残留任何未知的软件缺陷。 因为如果有未知的软件缺陷，你可以通过做更多的测试来找到它们，也就是说你的测试还没有穷尽。</p>
-<p>但是，在绝大多数的软件工程实践中，测试由于受限于时间成本和经济成本，是不可能去穷尽所有可能的组合的，而是采用基于风险驱动的模式，有所侧重地选择测试范围和设计测试用例，以寻求缺陷风险和研发成本之间的平衡。</p>
-<p>总结<br>首先，对于高质量的软件测试，用例设计不仅需要考虑明确的显式功能性需求，还要涉及兼容性、安全性和性能等一系列的非功能性需求，这些非功能性需求对软件系统的质量有着举足轻重的作用。</p>
-<p>其次，优秀的测试工程师必须具有宽广的知识面，才能设计出有针对性、更易于发现问题的测试用例。</p>
-<p>最后，软件测试的用例设计是不可穷尽的，工程实践中难免受制于时间成本和经济成本，所以优秀的测试工程师需要兼顾缺陷风险和研发成本之间的平衡。</p>
-
+        
+          <a class="article-more-a" href="/2018/08/09/25-用户登录/#more">more >></a>
+        
       
 
       
@@ -793,192 +969,9 @@
 
 
   
-    <article id="post-111" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        var Arr = [7, 15, 18, 21, 27, 36, 42, 48, 51, 54, 60, 72];
-        var G = 0;
-        var m = 0;
-        function binary(find, arr, low, high) {
-            G = G+1
-            if (low <= high) {
-                if (arr[low] == find) {
-                    return low;
-                }
-                if (arr[high] == find) {
-                    return high;
-                }
-                var mid = Math.ceil((high + low) / 2);
-                if (arr[mid] == find) {
-                    return mid;
-                } else if (arr[mid] > find) {
-                    return binary(find, arr, low, mid - 1);
-                } else {
-                    return binary(find, arr, mid + 1, high);
-                }
-                m = m + 1;
-            }
-            return -1;
-        }
-        binary(38, Arr, 0, Arr.length - 1);
-        console.log(G);
-        // console.log(m);
-    </script>
-</body>
-</html>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/06/111/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-17-PPP安全认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/05/17-PPP安全认证/">PPP点对点协议</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/05/17-PPP安全认证/" class="archive-article-date">
-  	<time datetime="2018-03-05T09:23:42.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h3><p>在RFC1334指定的同步和异步接口支持两个</p>
-<p>PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。</p>
-<p>PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保护措施。远程节点是由登录尝试的频率和定时控制。</p>
-<p>CHAP是挑战握手认证协议，全称：Challenge Handshake Authentication Protocol  CHAP通过三次握手验证被认证端的身份，在初始链路建立时完成，未来提高安全性，在链路建立之后周期性进行验证。CHAP比PAP更安全，因为CHAP不在显露上发送明文，而是发送经过MD5过的随机书序列。CHAP支持单向和双向认证。</p>
-<h3 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h3><h3 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h3><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
-<h3 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h3><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
-<h3 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h3><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
-<h3 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h3><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
-<h3 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h3><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
-<h3 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h3><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
-<h3 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h3><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
-<p>模块完成多个需要按一定的步骤一次完成的功能。例如：在用程序流程图设计模块时，若将程序流程图中的一部分划出各自组成模块，便形成过程内聚。</p>
-<h3 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h3><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
-<h3 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h3><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
-<p>过程设计主要包含对数据结构和算法的设计。</p>
-<p>状态——迁移图（STD）或状态——迁移表被用来描述系统或对象的状态，以及导致系统或对象的状态改变的时间，从而描述系统的行为。</p>
-<p>数据流图是结构分析方法中使用的工具，它以图形的方式描绘数据在系统中流动和处理的过程，由于它只反应系统必须完成的逻辑功能，所以它是一种功能模型。在结构化开发方法中，数据流图是需求分析阶段产生的结果。</p>
-<p>E-R图也称实体——联系图（Entity Relationship Diagram），提供了表示尸体类型、属性和联系的方法，用来描述显示世界的概念模型。</p>
-<p>算法可以借助各种工具描述出来，一个算法可以是用自然语言、数字语言或约定的符合来描述，也可以用计算机高级程序来描述，如流程图、Pascal语言、C语言、伪代码或决策表等。</p>
-<p>拒绝服务攻击即攻击者想办法让目标机器停止提供服务或资源访问，是黑客常用的攻击手段之一。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PPP</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">安全认证协议</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/05/17-PPP安全认证/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -990,7 +983,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Lifeng Geng
+    		&copy; 2019 Lifeng Geng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1085,7 +1078,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,11 +1086,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">postman</a>
+                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,7 +1098,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color3">postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1117,11 +1106,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,6 +1122,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
@@ -1141,7 +1134,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">易用性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1153,19 +1154,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">

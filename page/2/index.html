@@ -151,6 +151,189 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-111" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Arr = [7, 15, 18, 21, 27, 36, 42, 48, 51, 54, 60, 72];
+        var G = 0;
+        var m = 0;
+        function binary(find, arr, low, high) {
+            G = G+1
+            if (low <= high) {
+                if (arr[low] == find) {
+                    return low;
+                }
+                if (arr[high] == find) {
+                    return high;
+                }
+                var mid = Math.ceil((high + low) / 2);
+                if (arr[mid] == find) {
+                    return mid;
+                } else if (arr[mid] > find) {
+                    return binary(find, arr, low, mid - 1);
+                } else {
+                    return binary(find, arr, mid + 1, high);
+                }
+                m = m + 1;
+            }
+            return -1;
+        }
+        binary(38, Arr, 0, Arr.length - 1);
+        console.log(G);
+        // console.log(m);
+    </script>
+</body>
+</html>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/06/111/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-17-PPP安全认证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/05/17-PPP安全认证/">PPP点对点协议</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/05/17-PPP安全认证/" class="archive-article-date">
+  	<time datetime="2018-03-05T09:23:42.744Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"><a href="#点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）" class="headerlink" title="点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）"></a>点对点协议（PPP）目前支持二个认证协议：密码验证协议（PAP）和质询握手验证协议（CHAP）</h3><p>在RFC1334指定的同步和异步接口支持两个</p>
+<p>PAP使用双向握手为远程节点提供一个简单的设立身份的方法。PPP链路建立阶段完成后，用户名和密码通过链路（在明文）进行不断重复发送，直到鉴权完成或连接终止为止。</p>
+<p>PAP不是一个安全的认证协议，在链路中以明文形式发送密码，并且此处不提供防止重放或跟踪错误进攻的保护措施。远程节点是由登录尝试的频率和定时控制。</p>
+<p>CHAP是挑战握手认证协议，全称：Challenge Handshake Authentication Protocol  CHAP通过三次握手验证被认证端的身份，在初始链路建立时完成，未来提高安全性，在链路建立之后周期性进行验证。CHAP比PAP更安全，因为CHAP不在显露上发送明文，而是发送经过MD5过的随机书序列。CHAP支持单向和双向认证。</p>
+<h3 id="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"><a href="#安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志" class="headerlink" title="安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志"></a>安全防护策略有入侵检测、隔离防护、漏洞扫描、安全日志</h3><h3 id="内聚是一个模块内部各成分之间相关联程度的度量"><a href="#内聚是一个模块内部各成分之间相关联程度的度量" class="headerlink" title="内聚是一个模块内部各成分之间相关联程度的度量"></a>内聚是一个模块内部各成分之间相关联程度的度量</h3><p>内聚按紧密程度从低到高排列次序为偶然内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、顺序内聚、功能内聚。但是紧密程度的增长是非线性的。偶然内聚和逻辑内聚的模型关系松散，后面几种内聚相差不多，功能内聚一个功能、独立性强、内部结构紧密，是最理想的内聚。</p>
+<h3 id="偶然内聚"><a href="#偶然内聚" class="headerlink" title="偶然内聚"></a>偶然内聚</h3><p>如果一个模块的各成分之间毫无关系，则称为偶然内聚，也就是说模型完成一组任务，这些任务之间的关系松散，实际上没有什么联系</p>
+<h3 id="逻辑内聚"><a href="#逻辑内聚" class="headerlink" title="逻辑内聚"></a>逻辑内聚</h3><p>几个逻辑相关的功能被放在同一个模型中，则称为逻辑内聚。如果一个模块读取各种不同类型外设的输入。尽管逻辑内聚比偶然内聚合理一些，但逻辑内聚的模块各成分在功能上并无关系，即使局部功能的修改有时也会影响全局，因此这类模块的修改也比较困难。</p>
+<h3 id="时间内聚"><a href="#时间内聚" class="headerlink" title="时间内聚"></a>时间内聚</h3><p>如果一个模块完成的共恩那个必须在同一时间内执行（如系统初始化），但这些功能只是因为时间因素关联在一起，则称为时间内聚。</p>
+<h3 id="通信内聚"><a href="#通信内聚" class="headerlink" title="通信内聚"></a>通信内聚</h3><p>如果一个模块的所有成分都操作同一数据集或生成同一数据集，则称为通信内聚。</p>
+<h3 id="顺序内聚"><a href="#顺序内聚" class="headerlink" title="顺序内聚"></a>顺序内聚</h3><p>如果一个模块的各个成分和同一个功能密切相关，而且一个成分的输出作为另一个成分的输入，则称为顺序内聚</p>
+<h3 id="过程内聚"><a href="#过程内聚" class="headerlink" title="过程内聚"></a>过程内聚</h3><p>构件或者操作的组合方式是，允许在调用前面的构件或操作之后，马上调用后面的构件或操作，及时两者之间没有数据进行传递。</p>
+<p>模块完成多个需要按一定的步骤一次完成的功能。例如：在用程序流程图设计模块时，若将程序流程图中的一部分划出各自组成模块，便形成过程内聚。</p>
+<h3 id="信息内聚"><a href="#信息内聚" class="headerlink" title="信息内聚"></a>信息内聚</h3><p>模块完成多个功能，各个功能都在同一数据结构上操作，每一项功能有一个唯一的入口点。这个模块将根据不同的要求，确定该模块执行哪一个功能。由于这个模块的所有功能都是基于同一个数据结构，因此，它是信息内聚的模块</p>
+<h3 id="功能内聚"><a href="#功能内聚" class="headerlink" title="功能内聚"></a>功能内聚</h3><p>模块的所有成分对于我那成单衣的功能都是必须的，则称为功能内聚。</p>
+<p>过程设计主要包含对数据结构和算法的设计。</p>
+<p>状态——迁移图（STD）或状态——迁移表被用来描述系统或对象的状态，以及导致系统或对象的状态改变的时间，从而描述系统的行为。</p>
+<p>数据流图是结构分析方法中使用的工具，它以图形的方式描绘数据在系统中流动和处理的过程，由于它只反应系统必须完成的逻辑功能，所以它是一种功能模型。在结构化开发方法中，数据流图是需求分析阶段产生的结果。</p>
+<p>E-R图也称实体——联系图（Entity Relationship Diagram），提供了表示尸体类型、属性和联系的方法，用来描述显示世界的概念模型。</p>
+<p>算法可以借助各种工具描述出来，一个算法可以是用自然语言、数字语言或约定的符合来描述，也可以用计算机高级程序来描述，如流程图、Pascal语言、C语言、伪代码或决策表等。</p>
+<p>拒绝服务攻击即攻击者想办法让目标机器停止提供服务或资源访问，是黑客常用的攻击手段之一。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">PPP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">安全认证协议</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/05/17-PPP安全认证/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-16-如何避免漏测" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -578,7 +761,7 @@ postman也可以设置动态的变量，到现在这还是一个重要的尝试�
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>api自动化测试是软件测试中最基本的一种类型。api就像建造大楼的砖块，开发人员通过运用一定规则将“砖块”放在一起来构造程序，本质来说，api测试是用来验证组成软件的那些单个方法的正确性，而不是测试政哥系统本身。</p>
+        <p>api自动化测试是软件测试中最基本的一种类型。api就像建造大楼的砖块，开发人员通过运用一定规则将“砖块”放在一起来构造程序，本质来说，api测试是用来验证组成软件的那些单个方法的正确性，而不是测试整个系统本身。</p>
 <p>api测试又称接口测试，接口测试是功能测试的一种，主要借助与单元测试技术，通过模拟上层应用调用接口的应用场景，是对系统接口功能进行测试的一种手段，在进行接口测试的过程中，测试工程师并不需要了解被测试系统的所有代码，而主要通过分析接口定义以及模拟接口调用的业务场景来进行测试用例的设计，从而达到被测试系统功能进行测试的目的。接口测试的重点是要检查数据的交换、传递和控制管理的过程，以及系统间的相互逻辑依赖关系等。</p>
         
           <a class="article-more-a" href="/2018/01/07/11-接口测试必要性/#more">more >></a>
@@ -796,165 +979,9 @@ postman也可以设置动态的变量，到现在这还是一个重要的尝试�
 
 
   
-    <article id="post-07-状态码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/02/07-状态码/">状态码</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/02/07-状态码/" class="archive-article-date">
-  	<time datetime="2018-01-02T03:34:44.311Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="100"><a href="#100" class="headerlink" title="100"></a>100</h3><p>客户端应当继续发送请求。这个临时响应是用来通知客户端它的部分请求已经被服务器接收，且仍未被拒绝。客户端应当继续发送请求的剩余部分，或者如果请求已经完成，忽略这个响应。服务器必须在请求完成后向客户端发送一个最终响应。</p>
-<h3 id="101"><a href="#101" class="headerlink" title="101"></a>101</h3><p>服务器已经理解了客户端的请求，并将通过Upgrade消息头通过客户端采用不同的协议来完成这个请求。在发送完这个响应最后的空行后，服务器将会切换到在Upgrade消息头中定义的那些协议。 只有在切换新的协议更有好处的时候才应该采取类似措施。例如，切换到新的HTTP版本比旧版本更有优势，或者切换到一个实时且同步的协议以传送利用此类特性的资源</p>
-<h3 id="102"><a href="#102" class="headerlink" title="102"></a>102</h3><p>由WebDAV（RFC 2518）扩展的状态码，代表处理将被继续执行。</p>
-        
-          <a class="article-more-a" href="/2018/01/02/07-状态码/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">常用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/02/07-状态码/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-06-QPS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/01/06-QPS/">QPS</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/01/06-QPS/" class="archive-article-date">
-  	<time datetime="2018-01-01T11:22:25.692Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Query-Per-Second"><a href="#Query-Per-Second" class="headerlink" title="Query Per Second"></a>Query Per Second</h2><p>每秒查询率QPS是对一个特定的查询服务器在规定时间内所处理流量多少的衡量标准。</p>
-<p>因特网上，经常用每秒查询率来衡量域名系统服务器的机器的性能，其即为QPS。</p>
-<p>对应feches/sec，即每秒的响应请求数，也即是最大吞吐能力。</p>
-        
-          <a class="article-more-a" href="/2018/01/01/06-QPS/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">常用</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/01/06-QPS/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
@@ -966,7 +993,7 @@ postman也可以设置动态的变量，到现在这还是一个重要的尝试�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Lifeng Geng
+    		&copy; 2019 Lifeng Geng
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -1061,7 +1088,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
+                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,11 +1096,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">接口测试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">postman</a>
+                <a href="javascript:void(0)" class="js-tag color3">猴子</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1085,7 +1108,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
+                <a href="javascript:void(0)" class="js-tag color3">postman</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1093,11 +1116,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color3">漏测</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,6 +1132,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
@@ -1117,7 +1144,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">易用性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1129,19 +1164,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">产品说明书</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
+                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">处女座</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
