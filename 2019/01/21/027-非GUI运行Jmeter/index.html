@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-3.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-4.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/21/027-非GUI运行Jmeter/img/027-5.png">
-<meta property="og:updated_time" content="2019-01-23T09:43:10.417Z">
+<meta property="og:updated_time" content="2019-01-23T09:48:47.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="非GUI运行Jmeter">
 <meta name="twitter:description" content="一、非GUI运行JMeter优点 非图形化执行模式，节约系统资源 可通过shell脚本命令执行,更容易实现多工具集整合 当一台机器产生的压力不够时，采用分布式多机远程执行模式，使得一台主控机可以控制多台压力机，同时生成更多的压力请求，达到客户端能模拟大并发请求的目的">
@@ -259,9 +259,9 @@
 <p> 在文件末增加以下内容，注意安装目录要跟自己的目录匹配</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">export JMETER_HOME=/usr/local/apache-jmeter-5.0.</div><div class="line">export CLASSPATH=$JMETER_HOME/lib/ext/ApacheJMeter_core.jar:$JMETER_HOME/lib/jorphan.jar:$JMETER_HOME/lib/logkit-2.0.jar:$CLASSPATH</div><div class="line">export PATH=$JMETER_HOME/bin:$PATH:$HOME/bin</div></pre></td></tr></table></figure>
 <p> // 按Esc后 :wq 保存 </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    $ source /etc/profile</div><div class="line">    ```    </div><div class="line">3. 给jmeter执行权限</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    $ source /etc/profile</div><div class="line">    ```    </div><div class="line"></div><div class="line">3. 给jmeter执行权限</div></pre></td></tr></table></figure>
 <p> $ cd apache-jmeter-5.0/bin<br> $ chmod +x jmeter.sh</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4. 验证jmeter是否安装成功</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">4. 验证jmeter是否安装成功</div></pre></td></tr></table></figure>
 <p> $ jmeter –version</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">        ![jmeter](img/027-6.png)</div><div class="line"></div><div class="line">## 三、测试执行</div><div class="line"></div><div class="line">1. nmon监控服务器性能</div><div class="line"></div><div class="line">    nmon执行命令</div></pre></td></tr></table></figure>
 <p>nmon -s 300 -c 288 -f -m /logs</p>
@@ -305,7 +305,7 @@ $ ./run.sh 100 1000 scripts/esdb_grid_3.jmx 3
 </li>
 </ol>
 <h2 id="四、结果分析"><a href="#四、结果分析" class="headerlink" title="四、结果分析"></a>四、结果分析</h2><ol>
-<li>将nmon的log文件下载后，使用 打开后，即可得出CPU、内存、网络等服务器资源监控情况</li>
+<li>将nmon的log文件下载后，使用 nmon+analyser+v33g.xls 打开后，即可得出CPU、内存、网络等服务器资源监控情况</li>
 <li>将jmeter执行完成后的.jtl文件下载下来后，使用jmeter打开，即可得到执行结果；</li>
 </ol>
 
@@ -539,15 +539,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,15 +575,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,11 +591,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试用例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">配置</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机组成</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -607,7 +607,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">易用性</a>
+                <a href="javascript:void(0)" class="js-tag color3">配置</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,19 +615,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">易用性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">文档</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">处女座</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">测试经验</a>
+                <a href="javascript:void(0)" class="js-tag color3">网站</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,7 +635,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网站</a>
+                <a href="javascript:void(0)" class="js-tag color5">测试计划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">处女座</a>
               </li>
             
             <div class="clearfix"></div>
